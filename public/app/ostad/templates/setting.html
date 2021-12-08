@@ -1,0 +1,173 @@
+<div class="padding" data-ng-init="std_ctrl.loadOstadProfile()">
+<div class="row-col" dir="rtl">
+  <div class="col-sm-3 col-lg-2">
+    <div class="p-y">
+      <div class="nav-active-border bottom b-primary">
+        <ul class="nav nav-sm">
+          <li class="nav-item">
+            <a class="nav-link block active" href data-toggle="tab" data-target="#tab-1">پروفایل</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link block" href data-toggle="tab" data-target="#tab-2">تنظیمات حساب </a>
+          </li>
+         
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-9 col-lg-10 light lt bg-auto">
+    <div class="tab-content pos-rlt">
+      <div class="tab-pane active" id="tab-1">
+        <div class="p-a-md dker _600">پروفایل عمومی</div>
+        <form role="form" class="p-a-md ">
+
+          <div class="form-group">
+            <label>تصویر پروفایل</label>
+            <div class="form-file">
+              <input type="file" name="file" id="file">
+              <button class="btn white">آپلود تصویر جدید</button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>نام</label>
+            <input type="text" name="oname" disabled class="form-control" ng-model="std_ctrl.ostad_prof.oname" value="{{std_ctrl.ostad_prof.oname}}">
+          </div>
+          <div class="form-group">
+            <label>نام خانوادگی</label>
+            <input type="text" name="ofamily" disabled class="form-control" ng-model="std_ctrl.ostad_prof.ofamily" value="{{std_ctrl.ostad_prof.ofamily}}">
+          </div>
+          <div class="form-group">
+            <label>شماره تلفن</label>
+            <input type="text" name="ophone" class="form-control" ng-model="std_ctrl.ostad_prof.ophone" value="{{std_ctrl.ostad_prof.ophone}}">
+          </div>
+          
+          <div class="form-group">
+            <label>بیوگرافی</label>
+            <input type="text" name="obio" class="form-control" ng-model="std_ctrl.ostad_prof.obio" value="{{std_ctrl.ostad_prof.obio}}">
+          </div>
+          
+          <button ng-click="std_ctrl.EditOstadSetting(std_ctrl.ostad_prof);" type="button" class="btn btn-info m-t">ویرایش</button>
+        </form>
+      </div>
+       <div class="tab-pane" id="tab-2">
+        <div class="p-a-md dker _600">تنظیمات امنیتی</div>
+        <form role="form" class="p-a-md ">
+          <div class="form-group">
+            <label>نام کاربری</label>
+            <input type="text" name="ouser" class="form-control" ng-model="std_ctrl.ostad_prof.ouser" value="{{std_ctrl.ostad_prof.ouser}}">
+          </div>
+          <div class="form-group">
+            <label>پسورد</label>
+            <input type="password" name="opass" class="form-control" ng-model="std_ctrl.ostad_prof.opass" value="{{std_ctrl.ostad_prof.opass}}">
+          </div>
+          <div class="form-group">
+            <label>کد پرسنلی</label>
+            <input type="text" name="opercode" class="form-control" ng-model="std_ctrl.ostad_prof.opercode" value="{{std_ctrl.ostad_prof.opercode}}">
+          </div>
+          
+          <button type="submit" ng-click="std_ctrl.EditSecSetting(std_ctrl.ostad_prof);" class="btn btn-info m-t">ویرایش</button>
+        </form>
+      </div>
+    <!--  <div class="tab-pane" id="tab-3">
+        <div class="p-a-md dker _600">Emails</div>
+        <form role="form" class="p-a-md ">
+          <p>E-mail me whenever</p>
+          <div class="checkbox">
+            <label class="ui-check">
+              <input type="checkbox"><i class="dark-white"></i> Anyone posts a comment
+            </label>
+          </div>
+          <div class="checkbox">
+            <label class="ui-check">
+              <input type="checkbox"><i class="dark-white"></i> Anyone follow me
+            </label>
+          </div>
+          <div class="checkbox">
+            <label class="ui-check">
+              <input type="checkbox"><i class="dark-white"></i> Anyone send me a message
+            </label>
+          </div>
+          <div class="checkbox">
+            <label class="ui-check">
+              <input type="checkbox"><i class="dark-white"></i> Anyone invite me to group
+            </label>
+          </div>
+          <button type="submit" class="btn btn-info m-t">Update</button>
+        </form>
+      </div>
+      <div class="tab-pane" id="tab-4">
+        <div class="p-a-md dker _600">Notifications</div>
+        <form role="form" class="p-a-md ">
+          <p>Notice me whenever</p>
+          <div class="checkbox">
+            <label class="ui-check">
+              <input type="checkbox"><i class="dark-white"></i> Anyone seeing my profile page
+            </label>
+          </div>
+          <div class="checkbox">
+            <label class="ui-check">
+              <input type="checkbox"><i class="dark-white"></i> Anyone follow me
+            </label>
+          </div>
+          <div class="checkbox">
+            <label class="ui-check">
+              <input type="checkbox"><i class="dark-white"></i> Anyone send me a message
+            </label>
+          </div>
+          <div class="checkbox">
+            <label class="ui-check">
+              <input type="checkbox"><i class="dark-white"></i> Anyone invite me to group
+            </label>
+          </div>
+          <button type="submit" class="btn btn-info m-t">Update</button>
+        </form>
+      </div>
+      <div class="tab-pane" id="tab-5">
+        <div class="p-a-md dker _600">Security</div>
+        <div class="p-a-md">
+          <div class="clearfix m-b-lg">
+            <form role="form" class=" p-a-0">
+              <div class="form-group">
+                <label>Old Password</label>
+                <input type="password" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>New Password</label>
+                <input type="password" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>New Password Again</label>
+                <input type="password" class="form-control">
+              </div>
+              <button type="submit" class="btn btn-info m-t">Update</button>
+            </form>
+          </div>
+
+          <p><strong>Delete account?</strong></p>
+          <button type="submit" class="btn btn-danger m-t" data-toggle="modal" data-target="#modal">Delete Account</button>
+
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>
+<div id="modal" class="modal fade animate black-overlay" data-backdrop="false">
+  <div class="row-col h-v">
+    <div class="row-cell v-m">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content flip-y">
+          <div class="modal-body text-center">          
+            <p class="p-y m-t"><i class="fa fa-remove text-warning fa-3x"></i></p>
+            <p>Are you sure to delete your account?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn white p-x-md" data-dismiss="modal">No</button>
+            <button type="button" class="btn btn-danger p-x-md" data-dismiss="modal">Yes</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div>
+    </div>
+  </div>
+</div>
+</div>

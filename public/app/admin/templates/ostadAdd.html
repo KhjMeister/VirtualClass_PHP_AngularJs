@@ -1,0 +1,86 @@
+
+<div class="padding" ng-init="std_ctrl.OstadsDetails();">
+    <form name="oadd" method="post" id="create_student_info_frm" >
+        <div class="box">
+          <div class="box-header">
+            <h2>اطلاعات استاد را وارد کنید</h2>
+          </div>
+        <div style="padding-right: 130px; padding-left: 130px; !important;">
+
+          <div class="box-body">                    
+            <div class="form-group row">
+              <div class="col-sm-9">
+                <input name="opercode" ng-model="ostad.opercode" type="text" class="form-control" required="" placeholder="کد را اینجا وارد کنید...">
+                <span class="myerror" ng-show="oadd.opercode.$touched && oadd.opercode.$invalid" >کد مورد نیاز است</span>
+              
+              </div>
+              <label class="col-sm-3 form-control-label">کد پرسنلی</label>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-9">
+                <input name="oname" ng-model="ostad.oname" type="text" class="form-control"  required="" placeholder="نام را اینجا وارد کنید...">
+                <span class="myerror" ng-show="oadd.oname.$touched && oadd.oname.$invalid" >نام مورد نیاز است</span>
+              
+              </div>
+              <label class="col-sm-3 form-control-label">نام</label>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-9">
+                <input name="ofamily" ng-model="ostad.ofamily" type="text" class="form-control"  required="" placeholder="نام خانوادگی را اینجا وارد کنید...">
+                <span class="myerror" ng-show="oadd.ofamily.$touched && oadd.ofamily.$invalid" >نام خانوادگی مورد نیاز است</span>
+              
+              </div>
+              <label class="col-sm-3 form-control-label">نام خانوادگی</label>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-9">
+                <input name="ofather" ng-model="ostad.ofather" type="text"  class="form-control" required="" placeholder="نام پدر" >
+                <span class="myerror" ng-show="oadd.ofather.$touched && oadd.ofather.$invalid" >نام پدر مورد نیاز است</span>
+              
+              </div>
+              <label class="col-sm-3 form-control-label">نام پدر</label>
+            </div>
+            
+            <div class="form-group row" >
+              <div class="col-sm-9">
+                <input name="obrdate" ng-model="ostad.obrdate" type="date" class="form-control"  required="" placeholder="1374/10/4">
+                <span class="myerror" ng-show="oadd.obrdate.$touched && oadd.obrdate.$invalid" >تاریخ تولد مورد نیاز است</span>
+            
+            </div>
+              <label class="col-sm-3 form-control-label">تاریخ تولد</label>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-9">
+                <input name="ouser" ng-model="ostad.ouser" type="text"  minlength="5" class="form-control" required="" placeholder=" نام کاربری باید بیشتر از 5 حرف باشد" >
+                <span class="myerror" ng-show="oadd.ouser.$touched && oadd.ouser.$invalid" >نام کاربری مورد نیاز است</span>
+              
+              </div>
+              <label class="col-sm-3 form-control-label">نام کاربری</label>
+            </div>  
+
+            <div class="form-group row">
+              <div class="col-sm-9">
+                <input name="opass" ng-model="ostad.opass" type="text" minlength="5" class="form-control" required="" placeholder="پسورد باید بیشتر از 5 حرف باشد" >
+                <span class="myerror" ng-show="oadd.opass.$touched && oadd.opass.$invalid" >پسورد مورد نیاز است</span>
+              
+              </div>
+              <label class="col-sm-3 form-control-label">پسورد</label>
+            </div>     
+
+         
+          </div>
+          <br>
+          <div class=" text-right">&nbsp;&nbsp;&nbsp;
+            <button  class="btn btn-fw primary" ng-click="std_ctrl.addOstad(ostad)">ثبت</button>
+          </div>
+          <br>
+          </div>
+          <br>
+       
+      </form>
+
+</div>

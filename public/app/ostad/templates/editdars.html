@@ -1,0 +1,475 @@
+<div class="row-col" ng-init="std_ctrl.showFilms();std_ctrl.showDars();std_ctrl.showDarss();std_ctrl.showStudent();std_ctrl.showTest();">
+  <div class="col-sm w w-auto-xs light lt bg-auto">
+    <div class="padding pos-rlt">
+      <div>
+        <!-- <button class="btn btn-sm white pull-right hidden-sm-up" ui-toggle-class="show" target="#inbox-menu"><i class="fa fa-bars"></i></button> -->
+        
+      
+              <div class="btn-group dropdown ">
+              <button type="button" class="btn white" data-toggle="dropdown" aria-expanded="false">
+                {{ std_ctrl.Darss.dname }} <span class="caret"></span>
+              </button>
+              <ul  class="dropdown-menu animated fadeIn pull-right">
+                <li ng-repeat="darssq in std_ctrl.Darsssq" class="dropdown-item"><a href="./ostad/editdars" ng-click="std_ctrl.Initstatus(darssq.did);std_ctrl.darsID(darssq.did);std_ctrl.showDars();std_ctrl.showFilms();std_ctrl.showFiles();std_ctrl.showNotif(); " >{{ darssq.dname }}</a></li>
+          
+              </ul>
+            </div>
+            
+      </div>
+      <div class=" m-t" id="inbox-menu">
+        <div class="p-y-md clearfix nav-active-primary">
+          <ul class="nav nav-pills">
+            <li class="nav-item mynav-item active" >
+              <a class="nav-link " href data-toggle="tab" data-target="#tab_1" ng-click="std_ctrl.showFilms()">
+                اضافه کرن فیلم
+              </a>
+              
+            </li>
+            <li class="nav-item mynav-item">
+              <a class="nav-link" href data-toggle="tab" data-target="#tab_2" ng-click="std_ctrl.showFiles()">
+                اضافه کردن فایل
+              </a>
+              
+            </li>
+            <li class="nav-item mynav-item">
+              <a class="nav-link" href data-toggle="tab" data-target="#tab_3" ng-click="std_ctrl.getAllStudents()">
+                دانشجو
+              </a>
+              
+            </li>
+            <li class="nav-item mynav-item">
+              <a class="nav-link" href data-toggle="tab" data-target="#tab_4" ng-click="std_ctrl.showNotif()">
+                اعلان جدید
+              </a>
+              
+            </li>
+            <li class="nav-item mynav-item">
+              
+              <a class="nav-link" href data-toggle="tab" data-target="#tab_5" ng-click="std_ctrl.showTest();">
+                کوئیز جدید
+              </a>
+            </li>
+             
+          </ul>
+        </div>
+        <!--  <div class="m-y">Labels</div>
+        <div class="nav-active-white">
+          <ul class="nav nav-pills nav-stacked nav-sm">
+            <li class="nav-item">
+              <a class="nav-link">
+                <i class="fa m-r-sm fa-circle text-primary" ></i>
+                Angular
+              </a>
+              <a class="nav-link">
+                <i class="fa m-r-sm fa-circle text-info" ></i>
+                Bootstrap
+              </a>
+              <a class="nav-link">
+                <i class="fa m-r-sm fa-circle text-warn" ></i>
+                Client
+              </a>
+              <a class="nav-link">
+                <i class="fa m-r-sm fa-circle text-accent" ></i>
+                Work
+              </a>
+            </li>
+          </ul>
+        </div>  --> 
+        <!-- <div class="p-y">
+          <form name="label">
+            <div class="input-group">
+              <input type="text" class="form-control form-control-sm" placeholder="New label" required>
+              <span class="input-group-btn">
+                <button class="btn btn-default btn-sm no-shadow" type="button">Add</button>
+              </span>
+            </div>
+          </form>
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <div class="col-sm">
+    <div ui-view class="padding pos-rlt">
+      <!-- <a href class="md-btn md-fab md-fab-bottom-left pos-fix red">
+        <i class="material-icons i-24 text-white">&#xe150;</i>
+      </a> -->
+      <div>
+     <!-- <div class="alert {{ std_ctrl.msg.kynde }} alert-dismissible" >
+    <a href="#" class="close pull-left" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>{{ std_ctrl.msg.message }}</strong> 
+  </div> -->
+        <!-- <div class="m-b">
+          <div class="btn-group pull-right">
+            <button type="button" class="btn btn-sm white"><i class="fa fa-chevron-left"></i></button>
+            <button type="button" class="btn btn-sm white"><i class="fa fa-chevron-right"></i></button>
+          </div>
+          <div class="btn-toolbar">
+            <div class="btn-group dropdown">
+              <button class="btn white btn-sm dropdown-toggle" data-toggle="dropdown">
+                <span class="dropdown-label">فیلترها</span>                    
+                <span class="caret"></span>
+              </button>
+              <div class="dropdown-menu text-left text-sm">
+                <a class="dropdown-item" href>همه</a>
+                <a class="dropdown-item" href>نخوانده ها</a>
+              </div>
+            </div>
+            <div class="btn-group">
+              <button class="btn btn-sm white" data-toggle="tooltip" data-placement="bottom" data-title="Refresh" data-original-title="" title=""><i class="fa fa-refresh"></i></button>
+            </div>
+          </div>
+        </div> -->
+
+        <div class="tab-content"> 
+
+            <div class="tab-pane p-v-sm active" id="tab_1">
+              <div class="list white " >
+                <div class="box">
+                  <div class="box-body">
+                    <form name="oadd" method="post" id="add_film_info_frm">
+                      <div class="form-group">
+                        <label for="title">موضوع</label>
+                        <input type="text" class="form-control" id="title" name="title" ng-model="newFilm.title" required="" placeholder="موضوع فیلم را مشخص کنید ... ">
+                        <span class="myerror" ng-show="oadd.title.$touched && oadd.title.$invalid" >موضوع فیلم نیاز است</span>
+                      
+                      </div>
+                      <div class="form-group">
+                        <label for="tozih">توضیحات</label>
+                        <input type="text" name="tozih" ng-model="newFilm.tozih" class="form-control" id="tozih" placeholder="توضیحات را وارد نمایید">
+                        <span class="myerror" ng-show="oadd.tozih.$touched && oadd.tozih.$invalid" >توضیحات فیلم نیاز است</span>
+                      
+                      </div>
+                      <div class="form-group"> 
+                        <p></p>
+                        
+                        <label for="file"> آپلود فایل</label>
+                        <input type="file"  name="file" id="file" class="form-control">
+                        <p></p>
+                        <label for="link"> لینک فایل</label>
+                        <input type="text" name="link" ng-model="newFilm.link" class="form-control" id="link" placeholder="لینک ایجاد می شود">
+                        
+                      
+                        <p class="help-block"></p>
+                      </div>
+                      
+                      <button id="upload" ng-click="std_ctrl.addNewFilm(newFilm)" class="btn btn-fw primary">ثبت</button>
+                    <div class="box-body" >
+                    
+                    </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          <div class="tab-pane p-v-sm" id="tab_2">
+            <div class="list white " >
+                <div class="box">
+                  <div class="box-body">
+                    <form name="oadd" method="post" id="add_file_info_frm">
+                      <div class="form-group">
+                        <label for="title">موضوع</label>
+                        <input type="text" class="form-control" id="title" name="title" ng-model="newFile.title" required="" placeholder="موضوع فایل را مشخص کنید ... ">
+                        <span class="myerror" ng-show="oadd.title.$touched && oadd.title.$invalid" >موضوع فایل نیاز است</span>
+                      
+                      </div>
+                      <div class="form-group">
+                        <label for="tozih">توضیحات</label>
+                        <input type="text" name="tozih" ng-model="newFile.tozih" class="form-control" id="tozih" placeholder="توضیحات را وارد کنید">
+                        <span class="myerror" ng-show="oadd.tozih.$touched && oadd.tozih.$invalid" >توضیحات فایل نیاز است</span>
+                      
+                      </div>
+                      <div class="form-group"> 
+                        <p></p>
+                        <label for="file"> آپلود فایل</label>
+                        <input type="file"  name="file1" id="file1" class="form-control">
+                        <p></p>
+                        <label for="link"> لینک فایل</label>
+                        <input type="text" name="link" ng-model="newFile.link" class="form-control" id="link" placeholder="لینک">
+                        
+                      
+                        <p class="help-block"></p>
+                      </div>
+                      
+                      <button id="upload" ng-click="std_ctrl.addNewFile(newFile)" class="btn btn-fw primary">ثبت</button>
+                    <div class="box-body" >
+                   
+                    </div>
+                    </form>
+                  </div>
+                </div>
+
+              </div>
+
+          </div>
+        
+          <div class="tab-pane p-v-sm" id="tab_3">
+              <div class="list white " >
+                <div class="box">
+                  <div class="box-body">
+                      <div class="row well">
+                        <button type="button" class="btn btn-fw primary pull-left" data-toggle="modal" data-target="#add-new-stu" ><i class="glyphicon glyphicon-plus">
+                                </i>  دانشجوی جدید
+                        </button>
+                      </div>
+                      <table st-table="display_records"  st-safe-src="std_ctrl.allstudents" class="table table-striped">
+                      <thead>
+                        <tr >
+                          <th class="mycenteralign" ></th>
+                          <th class="mycenteralign">نام</th>
+                          <th class="mycenteralign">نام خانوادگی</th>
+                          <th class="mycenteralign">نام پدر</th>
+                          <th class="mycenteralign">نام کاربری</th>
+                          <th></th>
+                        </tr>
+                        <tr>
+                          <th colspan="5">
+                            <input st-search placeholder="جستجوی دانشجویان" class="input-sm form-control" type="search"/>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr  st-select-row="row"  ng-repeat="row in display_records">
+                          <td><img class="img-thumbnail img-responsive" alt="image" src="assets/myimg/user.png" style="width: 50px; height: 50px;"/></td>
+                          <td>{{row.sname}}</td>
+                          <td>{{row.sfamily}}</td>
+                          <td>{{row.sfather}}</td>
+                          <td>{{row.suser}}</td>
+                          <td>
+                            
+                              <button class="btn btn-fw success" ng-click="std_ctrl.addToDars(row.sid);">اضافه به این درس</button>
+                              
+                            
+                          </td>
+                        </tr>
+                      </tbody>
+                      <tfoot>
+                        <tr>
+                          <td colspan="5" class="text-center">
+                            <div st-pagination="" st-items-by-page="itemsByPage"></div>
+                          </td>
+                        </tr>
+                      </tfoot>
+                    </table>
+                    
+                  </div>
+                </div>
+
+              </div>
+          </div>
+            
+            <div class="tab-pane p-v-sm" id="tab_4">
+               <div class="list white " >
+                <div class="box">
+                  <div class="box-body">
+                    <form name="oadd" method="post" id="add_file_info_frm">
+                      <div class="form-group">
+                        <label for="title">موضوع</label>
+                        <input type="text" class="form-control" id="title" name="title" ng-model="newNotif.title" required="" placeholder="موضوع فایل را مشخص کنید ... ">
+                        <span class="myerror" ng-show="oadd.title.$touched && oadd.title.$invalid" >موضوع اعلان نیاز است</span>
+                      
+                      </div>
+                      <div class="form-group">
+                        <label for="tozih">توضیحات</label>
+                        <input type="text" name="tozih" ng-model="newNotif.tozih" class="form-control" id="tozih" placeholder="توضیحات را وارد کنید">
+                        <span class="myerror" ng-show="oadd.tozih.$touched && oadd.tozih.$invalid" >توضیحات اعلان نیاز است</span>
+                      
+                      </div>
+                    
+                      
+                      <button id="upload" ng-click="std_ctrl.addnewNotif(newNotif)" class="btn btn-fw primary">ثبت</button>
+                    <div class="box-body" >
+                   
+                    </div>
+                    </form>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+      
+            <div class="tab-pane p-v-sm" id="tab_5">
+              <div class="list white " >
+                <div class="box">
+                  <div class="box-body">
+                      <form name="oadd" method="post" id="add_test_info_frm">
+                      <div class="form-group">
+                        <label for="title">موضوع</label>
+                        <input type="text" class="form-control" id="title" name="title" ng-model="newTest.title" required="" placeholder="موضوع فایل را مشخص کنید ... ">
+                        <span class="myerror" ng-show="oadd.title.$touched && oadd.title.$invalid" >موضوع نیاز است</span>
+                      
+                      </div>
+                      <div class="form-group">
+                        <label for="point">نمره</label>
+                        <input type="text" name="point" ng-model="newTest.point" class="form-control" id="point" placeholder="نمره را وارد کنید">
+                        <span class="myerror" ng-show="oadd.point.$touched && oadd.point.$invalid" >نمره نیاز است</span>
+                      
+                      </div>
+                      <div class="form-group">
+                        <label for="quest">سوال</label>
+                        <input type="text" name="quest" ng-model="newTest.quest" class="form-control" id="quest" placeholder="سوال را وارد کنید">
+                        <span class="myerror" ng-show="oadd.quest.$touched && oadd.quest.$invalid" >سوال  نیاز است</span>
+                      
+                      </div>
+                       <div class="form-group">
+                        <label for="an_1">گزینه اول</label>
+                        <input type="text" name="an_1" ng-model="newTest.an_1" class="form-control" id="an_1" placeholder="گزینه اول را وارد کنید">
+                        <span class="myerror" ng-show="oadd.an_1.$touched && oadd.an_1.$invalid" >گزینه اول نیاز است</span>
+                      
+                      </div>
+                       <div class="form-group">
+                        <label for="an_2">گزینه دوم</label>
+                        <input type="text" name="an_2" ng-model="newTest.an_2" class="form-control" id="an_2" placeholder="گزینه دوم را وارد کنید">
+                        <span class="myerror" ng-show="oadd.an_2.$touched && oadd.an_2.$invalid" >گزینه دوم نیاز است</span>
+                      
+                      </div>
+                       <div class="form-group">
+                        <label for="an_3">گزینه سوم</label>
+                        <input type="text" name="an_3" ng-model="newTest.an_3" class="form-control" id="an_3" placeholder="گزینه سوم را وارد کنید">
+                        <span class="myerror" ng-show="oadd.an_3.$touched && oadd.an_3.$invalid" >گزینه سوم  نیاز است</span>
+                      
+                      </div>
+                       <div class="form-group">
+                        <label for="an_4">گزینه چهارم</label>
+                        <input type="text" name="an_4" ng-model="newTest.an_4" class="form-control" id="an_4" placeholder="گزینه چهارم را وارد کنید">
+                        <span class="myerror" ng-show="oadd.an_4.$touched && oadd.an_4.$invalid" >گزینه چهارم  نیاز است</span>
+                      
+                      </div>
+                      <div class="form-group">
+                        <label for="an_4">عدد گزینه درست </label>
+                        <input type="text" name="right_an" ng-model="newTest.right_an" class="form-control" id="right_an" placeholder="عدد گزینه درست را وارد کنید">
+                        <span class="myerror" ng-show="oadd.right_an.$touched && oadd.right_an.$invalid" >عدد گزینه درست نیاز است</span>
+                      
+                      </div>
+                    
+                      
+                      <button id="upload" ng-click="std_ctrl.addnewTest(newTest)" class="btn btn-fw primary">ثبت</button>
+                    <div class="box-body" >
+                   
+                    </div>
+                    </form>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+      
+      </div>
+
+    
+
+
+
+        <!-- / list -->
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div id="add-new-stu" class="modal fade-scale" data-backdrop="true">
+  <div class="modal-dialog ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"></h5>
+      </div>
+      <div class="modal-body text-center p-lg">
+    <div class="box">
+      <div class="box-body">
+
+      <form name="oadd" method="post" id="create_student_info_frm" >
+        <div class="box">
+          <div class="box-header">
+            <h2>اطلاعات دانشجو را وارد کنید</h2>
+          </div>
+
+           <div >
+          <div class="box-body">                    
+            <div class="form-group row">
+              <div class="col-sm-9">
+                <input name="sncode" ng-model="daneshjoo.sncode" type="text" class="form-control" required="" placeholder="کد را اینجا وارد کنید...">
+                <span class="myerror" ng-show="oadd.sncode.$touched && oadd.sncode.$invalid" >کد مورد نیاز است</span>
+              
+              </div>
+              <label class="col-sm-3 form-control-label">کد ملی</label>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-9">
+                <input name="sname" ng-model="daneshjoo.sname" type="text" class="form-control"  required="" placeholder="نام را اینجا وارد کنید...">
+                <span class="myerror" ng-show="oadd.sname.$touched && oadd.sname.$invalid" >نام مورد نیاز است</span>
+                
+              </div>
+              <label class="col-sm-3 form-control-label">نام</label>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-9">
+                <input name="sfamily" ng-model="daneshjoo.sfamily" type="text" class="form-control"  required="" placeholder="نام خانوادگی را اینجا وارد کنید...">
+                <span class="myerror" ng-show="oadd.sfamily.$touched && oadd.sfamily.$invalid" >نام خانوادگی مورد نیاز است</span>
+              
+              </div>
+              <label class="col-sm-3 form-control-label">نام خانوادگی</label>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-9">
+                <input name="sfather" ng-model="daneshjoo.sfather" type="text"  class="form-control" required="" placeholder="نام پدر" >
+                <span class="myerror" ng-show="oadd.sfather.$touched && oadd.sfather.$invalid" >نام پدر مورد نیاز است</span>
+              
+              </div>
+              <label class="col-sm-3 form-control-label">نام پدر</label>
+            </div>
+            
+            <div class="form-group row" >
+              <div class="col-sm-9">
+                <input name="sbrdate" ng-model="daneshjoo.sbrdate" type="date" class="form-control"  required="" placeholder="1374/10/4">
+                <span class="myerror" ng-show="oadd.sbrdate.$touched && oadd.sbrdate.$invalid" >تاریخ تولد مورد نیاز است</span>
+                
+            </div>
+              <label class="col-sm-3 form-control-label">تاریخ تولد</label>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-9">
+                <input name="suser" ng-model="daneshjoo.suser" type="text"  minlength="5" class="form-control" required="" placeholder=" نام کاربری باید بیشتر از 5 حرف باشد" >
+                <span class="myerror" ng-show="oadd.suser.$touched && oadd.suser.$invalid" >نام کاربری مورد نیاز است</span>
+                
+              </div>
+              <label class="col-sm-3 form-control-label">نام کاربری</label>
+            </div>  
+
+            <div class="form-group row">
+              <div class="col-sm-9">
+                <input name="spass" ng-model="daneshjoo.spass" type="text" minlength="5" class="form-control" required="" placeholder="پسورد باید بیشتر از 5 حرف باشد" >
+                <span class="myerror" ng-show="oadd.spass.$touched && oadd.spass.$invalid" >پسورد مورد نیاز است</span>
+                
+              </div>
+              <label class="col-sm-3 form-control-label">پسورد</label>
+            </div>     
+
+         </div> 
+         <br>
+          <div class=" text-right">&nbsp;&nbsp;&nbsp;
+            <button  class="btn btn-fw primary pull-left" ng-click="std_ctrl.addNewStu(daneshjoo);std_ctrl.getAllStudents();" data-dismiss="modal">ثبت</button>
+          </div>
+          
+          </div>
+          
+        
+      </form>
+
+    </div>
+  </div>
+      
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">بستن</button>
+        
+      </div>
+    </div><!-- /.modal-content -->
+  </div>
+</div>

@@ -1,0 +1,478 @@
+<div class="row-col" ng-init="std_ctrl.showFilms();std_ctrl.showDars();std_ctrl.showDarss();std_ctrl.showStudent();std_ctrl.showTest();std_ctrl.showNotif(); ">
+  <div class="col-sm w w-auto-xs light lt bg-auto">
+    <div class="padding pos-rlt">
+      <div>
+        <!-- <button class="btn btn-sm white pull-right hidden-sm-up" ui-toggle-class="show" target="#inbox-menu"><i class="fa fa-bars"></i></button> -->
+        
+      
+              <div class="btn-group dropdown ">
+              <button  type="button" class="btn white" data-toggle="dropdown" aria-expanded="false">
+                {{ std_ctrl.Darss.dname }} <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu animated fadeIn pull-right">
+                <li ng-repeat="darssq in std_ctrl.Darsssq" class="dropdown-item"><a href="./ostad/dars" ng-click="std_ctrl.Initstatus(darssq.did);std_ctrl.darsID(darssq.did);std_ctrl.showDars();std_ctrl.showFilms();std_ctrl.showFiles();std_ctrl.showNotif();std_ctrl.showStudent();std_ctrl.showTest(); " >{{ darssq.dname }}</a></li>
+          
+              </ul>
+            </div>
+            
+      </div>
+      <div class=" m-t" id="inbox-menu">
+        <div class="p-y-md  nav-active-primary">
+          <ul class="nav nav-pills">
+            <li class="nav-item mynav-item active" >
+              <a class="nav-link " href data-toggle="tab" data-target="#tab_1" ng-click="std_ctrl.showFilms()">
+                فیلم ها
+              </a>
+              
+            </li>
+            <li class="nav-item mynav-item">
+              <a class="nav-link" href data-toggle="tab" data-target="#tab_2" ng-click="std_ctrl.showFiles()">
+                فایل ها
+              </a>
+              
+            </li>
+            <li class="nav-item mynav-item">
+              <a class="nav-link" href data-toggle="tab" data-target="#tab_3" ng-click="std_ctrl.showStudent()">
+                دانشچویان
+              </a>
+              
+            </li>
+            <li class="nav-item mynav-item">
+              <a class="nav-link" href data-toggle="tab" data-target="#tab_4" ng-click="std_ctrl.showNotif()">
+                اعلانات
+              </a>
+              
+            </li>
+            <li class="nav-item mynav-item">
+              
+              <a class="nav-link" href data-toggle="tab" data-target="#tab_5" ng-click="std_ctrl.showTest()">
+                کوئیز
+              </a>
+            </li>
+
+            
+             
+          </ul>
+        </div>
+       <!--  <div class="m-y">Labels</div>
+        <div class="nav-active-white">
+          <ul class="nav nav-pills nav-stacked nav-sm">
+            <li class="nav-item">
+              <a class="nav-link">
+                <i class="fa m-r-sm fa-circle text-primary" ></i>
+                Angular
+              </a>
+              <a class="nav-link">
+                <i class="fa m-r-sm fa-circle text-info" ></i>
+                Bootstrap
+              </a>
+              <a class="nav-link">
+                <i class="fa m-r-sm fa-circle text-warn" ></i>
+                Client
+              </a>
+              <a class="nav-link">
+                <i class="fa m-r-sm fa-circle text-accent" ></i>
+                Work
+              </a>
+            </li>
+          </ul>
+        </div> -->
+        <!-- <div class="p-y">
+          <form name="label">
+            <div class="input-group">
+              <input type="text" class="form-control form-control-sm" placeholder="New label" required>
+              <span class="input-group-btn">
+                <button class="btn btn-default btn-sm no-shadow" type="button">Add</button>
+              </span>
+            </div>
+          </form>
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <div class="col-sm">
+    <div ui-view class="padding pos-rlt">
+      <a href="./ostad/editdars" class="md-btn md-fab md-fab-bottom-left pos-fix red">
+        <i class="material-icons i-24 text-white">&#xe150;</i>
+      </a>
+      <div>
+        <!--  <div class="alert {{ std_ctrl.kynde }} alert-dismissible" >
+    <a href="#" class="close pull-left" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>{{ std_ctrl.msg.message }}</strong> 
+  </div> -->
+        <!-- header -->
+        <div class="m-b">
+          <div class="btn-group pull-right">
+            <button  class="btn btn-sm white"><i class="fa fa-chevron-left"></i></button>
+            <button  class="btn btn-sm white"><i class="fa fa-chevron-right"></i></button>
+          </div>
+          <div class="btn-toolbar">
+            
+            <div class="btn-group">
+              <button ng-click="std_ctrl.showTest();std_ctrl.showDars();std_ctrl.showFilms();std_ctrl.showFiles();std_ctrl.showNotif();std_ctrl.showStudent(); " class="btn btn-sm white" data-toggle="tooltip" data-placement="bottom" data-title="Refresh" data-original-title="" title=""><i class="fa fa-refresh"></i></button>
+            </div>
+          </div>
+        </div>
+        <!-- / header -->
+
+        <!-- list -->
+        <div class="tab-content"> 
+
+            <div class="tab-pane p-v-sm active" id="tab_1">
+              <div class="list white " >
+                <div class="box-header">
+                    <h3>آخرین فیلمهای ثبت شده در این درس</h3>
+                  </div>
+                  <div class="box-divider m-a-0"></div>
+                <div ng-repeat="film in std_ctrl.filmss">
+                  <div class="list-item b-l b-l-2x b-info" >
+
+                    <div class="list-left">
+                      <span class="w-40 avatar">
+                      <img src="assets/myimg/film.png">
+                    </span>
+                      <a title="حذف فیلم از این درس" data-toggle="tooltip" ng-click="std_ctrl.deletFilm(film.fid);std_ctrl.showFilms();"><span class="w-40 avatar"><img src="assets/myimg/del.png"></span></a>
+                      
+                    </div>
+                    <div class="list-body">
+                      <div class="pull-left text-muted text-xs">
+                        <span class="hidden-xs">{{ film.date }}</span>
+                        <i class="fa fa-paperclip m-l-sm"></i>
+                      </div>
+                      <div>
+                        <a data-toggle="modal" data-target="#m-md" ng-click="std_ctrl.showOneFilm(film.fid);" class="_500">{{ film.title }}</a>
+                        <span class="label label-xs m-l-sm text-u-c">{{ film.type }}</span>
+                      </div>
+                      <div class="text-ellipsis text-muted text-sm">
+                          {{ film.tozih }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          <div class="tab-pane p-v-sm" id="tab_2">
+            <div class="list white " >
+              <div class="box-header">
+                    <h3>آخرین فایلهای ثبت شده در این درس</h3>
+                  </div>
+                  <div class="box-divider m-a-0"></div>
+                <div ng-repeat="file in std_ctrl.filesss">
+                  <div class="list-item b-l b-l-2x b-info" >
+
+                    <div class="list-left">
+                      <span class="w-40 avatar">
+                      <img src="assets/myimg/file.png">
+                    </span>
+                      <a title="حذف فایل از این درس" data-toggle="tooltip" ng-click="std_ctrl.deletFile(file.iid);std_ctrl.showFiles();"><span class="w-40 avatar"><img src="assets/myimg/del.png"></span></a>
+                      
+                    </div>
+                    <div class="list-body">
+                      <div class="pull-left text-muted text-xs">
+                        <span class="hidden-xs">{{ file.date }}</span>
+                        <i class="fa fa-paperclip m-l-sm"></i>
+                      </div>
+                      <div> 
+                        
+                        <a data-toggle="modal" data-target="#m-md-file" ng-click="std_ctrl.showOneFile(file.iid);" class="_500">{{ file.title }}</a>
+                        <span class="label label-xs m-l-sm text-u-c">{{file.type}}</span>
+                      </div>
+                      <div class="text-ellipsis text-muted text-sm">
+                          {{ file.tozih }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+        <!-- ///////////////////////////////////// -->
+            <div class="tab-pane p-v-sm" id="tab_3">
+              <div class="list white " >
+                
+                <div class="box">
+                  <div class="box-header">
+                    <h3>دانشجویان ثبت شده در این درس</h3>
+                  </div>
+                  <div class="box-divider m-a-0"></div>
+                  <div ng-repeat="stu in std_ctrl.stus">
+                  <ul class="list no-border p-b">
+                    <li class="list-item">
+                      <div herf class="list-left">
+                        <span class="w-40 avatar">
+                          <img src="assets/myimg/user.png" >
+
+                        </span>
+                          <a title="حذف دانشجو از این درس" data-toggle="tooltip" ng-click="std_ctrl.deletStu(stu.tid);std_ctrl.showStudent();"><span class="w-40 avatar"><img src="assets/myimg/del.png"></span></a>
+                         <!--  <a  title="این گزینه باعث ایجاد قسمت دریافت پروژه از سوی دانشجو میشود." data-toggle="tooltip" ng-click="" class=" w-40 avatar">
+                            <img src="assets/myimg/save.png">
+                          </a> -->
+                      </div>
+                      <div class="list-body">
+                        <div><a href>{{ stu.sname }}</a></div>
+                        <small class="text-muted text-ellipsis">{{stu.sfamily}}</small>
+                      </div>
+                    </li>
+                   
+                  </ul>
+                </div>
+              </div>
+
+              </div>
+            </div>
+  <!-- //         /////////////////////////////////////  -->
+            <div class="tab-pane p-v-sm" id="tab_4">
+               <div class="list white " >
+                <div class="box-header">
+                    <h3>آخرین اعلانات ثبت شده در این درس</h3>
+                  </div>
+                  <div class="box-divider m-a-0"></div>
+                <div ng-repeat="notif in std_ctrl.notifsss">
+                  <div class="list-item b-l b-l-2x b-info" >
+
+                    <div class="list-left">
+                      <span class="w-40 avatar">
+                      <img src="assets/myimg/notif.png">
+                    </span>
+                      <a title="حذف اعلان از این درس" data-toggle="tooltip" ng-click="std_ctrl.deletNotif(notif.nid);std_ctrl.showNotif();"><span class="w-40 avatar"><img src="assets/myimg/del.png"></span></a>
+                      
+                    </div>
+                    <div class="list-body">
+                      <div class="pull-left text-muted text-xs">
+                        <span class="hidden-xs">{{ notif.date }}</span>
+                        <i class="fa fa-paperclip m-l-sm"></i>
+                      </div>
+                      <div>
+                        <a data-toggle="modal" data-target="#m-md-notif" ng-click="std_ctrl.showOneNot(notif.nid);" class="_500">{{ notif.title }}</a>
+                        <!-- <span class="label label-xs m-l-sm text-u-c">{{ }}</span> -->
+                      </div>
+                      <div class="text-ellipsis text-muted text-sm">
+                          {{ notif.tozih }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+      
+            <div class="tab-pane p-v-sm" id="tab_5">
+              <div class="list white " >
+                <div class="box-header">
+                    <h3>آخرین کوئیز ثبت شده در این درس</h3>
+                  </div>
+                  <div class="box-divider m-a-0"></div>
+                <div ng-repeat="test in std_ctrl.tests">
+
+                <div class="list-item b-l b-l-2x b-info">
+                  <div class="list-left">
+                    <span class="w-40 avatar">
+                      <img src="assets/myimg/quez.png">
+                    </span>
+                    <a title="حذف کوییز از این درس" data-toggle="popover" ng-click="std_ctrl.deletTest(test.qid);std_ctrl.showTest();"><span class="w-40 avatar"><img src="assets/myimg/del.png"></span></a>
+
+                    <a title="باعث پایان یافتن کوییز میشود" data-toggle="popover" ng-click="std_ctrl.endTime(test.qid);" class="w-40 avatar">
+                      <img src="assets/myimg/clock.png">
+                    </a>
+                    <a title="نتیجه کوییز را نمایش میدهد" ng-click="std_ctrl.showResaultTest(test.qid);" data-toggle="modal" data-target="#m-md-res-test" class="poppy w-40 avatar">
+                      <img src="assets/myimg/s.png">
+                    </a>
+                  </div>
+                  <div class="list-body">
+                    <div class="pull-left text-muted text-xs">
+                      <span class="hidden-xs">{{ test.date }}</span>
+                      <i class="fa fa-paperclip m-l-sm"></i>
+                    </div>
+                    <div>
+                      <a data-toggle="modal" data-target="#m-md-test" ng-click="std_ctrl.showOneText(test.qid);" class="_500">{{ test.title }}</a>
+                      <span class="label label-xs m-l-sm text-u-c">{{ test.state }}</span>
+                    </div>
+                    <div class="text-ellipsis text-muted text-sm">{{ test.quest }}</div>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+      
+      </div>
+
+    
+
+
+
+        <!-- / list -->
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div id="m-md" class="modal fade-scale" data-backdrop="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ std_ctrl.onefilm.name }}</h5>
+      </div>
+      <div class="modal-body text-center p-lg">
+        <video width="720" height="550" ng-src="{{std_ctrl.onefilm.link}}" controls>
+           
+    </video>
+    <p></p>
+    <p>دانلود : <a target="_blank" href="{{ std_ctrl.onefilm.link }}"><img src="assets/myimg/download.png" style="width: 25px;"></a></p>
+    
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">بستن</button>
+        
+      </div>
+    </div><!-- /.modal-content -->
+  </div>
+</div>
+
+<div id="m-md-file" class="modal fade-scale" data-backdrop="true">
+  <div class="modal-dialog ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ std_ctrl.onefile.title }}</h5>
+      </div>
+      <div class="modal-body  p-lg">
+      <ul class="list-group m-b">
+          <li class="list-group-item ">
+            <div class="block _500"><strong> نام فایل : {{ std_ctrl.onefile.name }} </strong ></div>
+          </li>
+          <li class="list-group-item ">
+            <div class="block _500"><img src="assets/myimg/file.png" style="width: 25px;"> نوع فایل : {{ std_ctrl.onefile.type }}</div>
+          </li>
+          <li class="list-group-item ">
+            <div class="block _500"><img src="assets/myimg/download.png" style="width: 25px;"> لینک دانلود : <a target="_blank" href="{{ std_ctrl.onefile.link }}"><span class="fa fa-download fa-2x"></span></a></div>
+          </li>
+      </ul> 
+    
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">بستن</button>
+        
+      </div>
+    </div><!-- /.modal-content -->
+  </div>
+</div>
+
+<div id="m-md-notif" class="modal fade-scale" data-backdrop="true">
+  <div class="modal-dialog ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">
+          موضوع اعلان : {{ std_ctrl.onenotif.title }}
+        </h5>
+      </div>
+      <div class="modal-body  p-lg">
+        <ul class="list-group m-b">
+              <li class="list-group-item ">
+                <div class="block _500"><strong><img src="assets/myimg/notif.png" style="width: 25px;"> {{ std_ctrl.onenotif.tozih }} </strong ></div>
+              </li>
+              <li class="list-group-item">
+                <div class="block _500"><strong><img src="assets/myimg/cal.png" style="width: 25px;"> {{ std_ctrl.onenotif.date }} </strong ></div>
+              </li>
+        </ul>
+     
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">بستن</button>
+        
+      </div>
+    </div><!-- /.modal-content -->
+  </div>
+</div>
+<div id="m-md-test" class="modal fade-scale" data-backdrop="true">
+  <div class="modal-dialog ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">
+          موضوع کوئیز : {{ std_ctrl.onenotest.title }}
+        </h5>
+      </div>
+      <div class="modal-body p-lg">
+
+      
+      <p>نمره : {{ std_ctrl.onenotest.point }}</p>
+      <p>تاریخ برگزاری : {{ std_ctrl.onenotest.date }}</p>
+      <ul class="list-group m-b">
+              <li class="list-group-item">
+                <div class="block _500"><strong><img src="assets/myimg/s.png" style="width: 25px;"> سوال : {{ std_ctrl.onenotest.quest }} </strong ></div>
+              </li>
+              
+                 <div  class="list-group-item block _500" > &nbsp;&nbsp;&nbsp; 1 :&nbsp;&nbsp;&nbsp;&nbsp; {{ std_ctrl.onenotest.an_1 }} </div>
+              
+                 <div  class="list-group-item block _500" > &nbsp;&nbsp;&nbsp; 2 :&nbsp;&nbsp;&nbsp;&nbsp; {{ std_ctrl.onenotest.an_2 }} </div>
+              
+                 <div  class="list-group-item block _500"  > &nbsp;&nbsp;&nbsp; 3 :&nbsp;&nbsp;&nbsp;&nbsp; {{ std_ctrl.onenotest.an_3 }} </div>
+              
+                 <div   class="list-group-item block _500"  > &nbsp;&nbsp;&nbsp; 4 :&nbsp;&nbsp;&nbsp;&nbsp; {{ std_ctrl.onenotest.an_4 }} </div>
+
+                  <li class="list-group-item">
+                  <div class="block _500"><strong><img src="assets/myimg/r.png" style="width: 25px;">  جواب درست : {{ std_ctrl.onenotest.right_an }} </strong ></div>
+                </li>
+              
+           </ul>
+      
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">بستن</button>
+        
+      </div>
+    </div><!-- /.modal-content -->
+  </div>
+</div>
+<div id="m-md-res-test" class="modal fade-scale" data-backdrop="true">
+  <div class="modal-dialog ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">
+          نتایج کوئیز
+        </h5>
+      </div>
+      <div class="modal-body table-responsive text-center p-lg">
+
+      
+      <table class=" table table-bordered m-a-0">
+        <thead>
+          <tr>
+            <th class="mycenteralign">دانشجو</th>
+            <th class="mycenteralign">جواب</th>
+          </tr>
+
+        </thead>
+        <tbody>
+          <tr ng-repeat="res in std_ctrl.resaulttest">
+            <td class="mycenteralign ">{{ res.sname  }}</td>
+            <td class="mycenteralign"> <img width="25px" src="assets/myimg/{{ res.h }}">{{ res.hh }}</td>
+          </tr>
+        </tbody>
+      </table>
+      
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">بستن</button>
+        
+      </div>
+    </div><!-- /.modal-content -->
+  </div>
+</div>

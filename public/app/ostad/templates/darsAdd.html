@@ -1,0 +1,68 @@
+
+<div class="padding">
+  <div id="snackbar">اضافه شد.</div>
+    <form name="oadd" method="post" id="create_student_info_frm" >
+        <div class="box">
+          <div class="box-header">
+            <h2>اطلاعات درس را وارد کنید</h2>
+          </div>
+
+          <div class="box-body">                    
+            <div class="form-group row">
+              <div class="col-sm-9">
+                <input name="dname" ng-model="dars.dname" type="text" class="form-control" required="" placeholder="نام درس را اینجا وارد کنید...">
+                <span class="myerror" ng-show="oadd.dname.$touched && oadd.dname.$invalid" >نام درس مورد نیاز است</span>
+                
+              </div>
+              <label class="col-sm-3 form-control-label">نام درس</label>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-9">
+                <input name="dyear" ng-model="dars.dyear" type="text" class="form-control"  required="" placeholder="سال تدریس ...">
+                <span class="myerror" ng-show="oadd.dyear.$touched && oadd.dyear.$invalid" >سال تدریس مورد نیاز است</span>
+              
+              </div>
+              <label class="col-sm-3 form-control-label">سال تدریس</label>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-9">
+                <input name="dkynde" ng-model="dars.dkynde" type="text"  class="form-control" required="" placeholder="نوع درس" >
+                <span class="myerror" ng-show="oadd.dkynde.$touched && oadd.dkynde.$invalid" >نوع درس مورد نیاز است</span>
+              
+              </div>
+              <label class="col-sm-3 form-control-label">نوع درس</label>
+            </div>
+            
+            <div class="form-group row" >
+              <div class="col-sm-9">
+                <input name="status" ng-model="dars.status" type="text" class="form-control"  required="" placeholder="وضعیت">
+                <span class="myerror" ng-show="oadd.status.$touched && oadd.status.$invalid" >وضعیت درس مورد نیاز است</span>
+            
+            </div>
+              <label class="col-sm-3 form-control-label">وضعیت</label>
+              </div>
+            </div>
+
+           
+
+
+         <br>
+          <div class=" text-right ">&nbsp;&nbsp;&nbsp;
+            <button  class="btn btn-fw primary" ng-click="std_ctrl.adddars(dars)">ثبت</button>
+          </div>
+          <br>
+          </div>
+          <br>
+        
+      </form>
+
+</div>
+<script>
+function myFunction() {
+    var x = document.getElementById("snackbar")
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
+</script>

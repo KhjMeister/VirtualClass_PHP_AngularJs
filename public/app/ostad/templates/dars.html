@@ -1,0 +1,279 @@
+
+<div class="padding" ng-init="std_ctrl.darsDetails();">
+<div class="box">
+    <div class="box-header">
+      <h3>نمایش اطلاعات درس ها شما</h3>
+      
+    </div>
+    <!-- <div class="box-body">
+      <input type="text" id="search_input" value="1" ng-model="search_input" class="form-control input-sm w-auto inline m-r"/>
+      <button ng-click="std_ctrl.search_data(search_input)" class="btn btn-outline b-success text-success" type="button" >جستجو</button>
+    </div>
+    <div>
+      <table class="table m-b-none" ui-jp="footable" data-filter="#filter" data-page-size="5">
+        <thead>
+          <tr>
+              <th class="mycenteralign" data-toggle="true">
+                  نام درس
+              </th>
+              <th class="mycenteralign">
+                  سال 
+              </th>
+              <th class="mycenteralign" >
+                  نوع درس
+              </th>
+              <th class="mycenteralign" >
+                  وضعیت
+              </th>
+              <th></th>
+              
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="ostads in std_ctrl.dars_list">
+              <td class="mycenteralign">{{ ostads.dname }}</td>
+              <td class="mycenteralign"><a href>{{ ostads.dyear }}</a></td>
+              <td class="mycenteralign">{{ ostads.dkynde }}</td>
+              <td class="mycenteralign" data-value="78025368997">{{ ostads.status }}</td>
+             
+                
+                <td><button type="button"  class="btn btn-outline b-danger text-danger" ng-click="std_ctrl.delete_student_info(ostads.did)">حذف</button>
+
+                  
+                <button type="button" data-toggle="modal" data-target="#edit_student_info_modal" class="btn btn-outline b-info text-info" ng-click="std_ctrl.edit_student_info(ostads.did)">ویرایش</button>
+
+                <a href="./ostad/dars"><button  type="button" class="btn btn-outline b-success text-success" ng-click="std_ctrl.darsID(ostads.did)" >مشاهده</button></a></td>
+          </tr>
+          
+        </tbody>
+
+
+        <tfoot class="hide-if-no-paging text-center footable-visible">
+          <pagination ng-model="currentPage" total-items="total_row" max-size="maxSize" boundary-links="true">
+        </pagination>
+        
+        
+        </tfoot>
+      </table>
+    </div> -->
+
+<div class="box-body">
+    <table  st-table="display_records"  st-safe-src="std_ctrl.mydars" class="table table-striped">
+        <thead>
+          <tr>
+          <th class="mycenteralign" data-toggle="true">
+                  نام درس
+              </th>
+              <th class="mycenteralign">
+                  سال 
+              </th>
+              <th class="mycenteralign" >
+                  نوع درس
+              </th>
+            
+              <th></th>
+          </tr>
+           <tr>
+                          <th colspan="5">
+                            <input st-search placeholder="جستجوی درس" class="input-sm form-control" type="search"/>
+                          </th>
+                        </tr>
+        </thead>
+        <tbody>
+          <tr st-select-row="row"  ng-repeat="row in display_records">
+           <td class="mycenteralign">{{ row.dname }}</td>
+              <td class="mycenteralign"><a href>{{ row.dyear }}</a></td>
+              <td class="mycenteralign">{{ row.dkynde }}</td>
+             
+                
+                <td><button type="button"  class="btn btn-outline b-danger text-danger" ng-click="std_ctrl.delete_student_info(row.did)">حذف</button>
+
+                  
+                <button type="button" data-toggle="modal" data-target="#edit_student_info_modal" class="btn btn-outline b-info text-info" ng-click="std_ctrl.edit_student_info(row.did)">ویرایش</button>
+
+                <a href="./ostad/dars"><button  type="button" class="btn btn-outline b-success text-success" ng-click="std_ctrl.darsID(row.did)" >مشاهده</button></a></td>
+
+
+          </tr>
+          
+        </tbody>
+        <tfoot>
+              <tr>
+                   <td colspan="5" class="text-center">
+                     <div st-pagination="" st-items-by-page="itemsByPage"></div>
+                  </td>
+              </tr>
+       </tfoot>
+      </table>
+      
+    </div>
+
+
+  </div>
+
+          
+<!-- .modal show-->
+<!-- <div  id="view_student_info_modal" role="dialog" class="modal fade animate" data-backdrop="true">
+  <div class="modal-dialog" id="animate">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">مشاهده اطلاعات درس {{ std_ctrl.view_student_info.dname }}</h5>
+      </div>
+      <div class="modal-body text-center p-lg">
+        <p>
+         <div class="box">
+          
+          <ul class="list inset">
+              <li class="list-item">
+                <a herf class="list-left">
+                 
+                </a>
+                <div class="list-body">
+                  <div class="m-y-sm pull-right">
+                    <a href class="btn btn-xs white">سال ارائه درس</a>
+                    
+                  </div>
+                  <div><a href>{{ std_ctrl.view_student_info.dyear }}</a></div>
+                  <div class="text-sm">
+                    
+                  </div>
+                </div>
+              </li>
+              <li class="list-item">
+                <a herf class="list-left">
+                  
+                </a>
+                <div class="list-body">
+                  <div class="m-y-sm pull-right">
+                    <a href class="btn btn-xs white">نوع درس</a>
+                    
+                  </div>
+                  <div><a href>{{ std_ctrl.view_student_info.dkynde }}</a></div>
+                  <div class="text-sm">
+                    
+                  </div>
+                </div>
+              </li>
+              <li class="list-item">
+                <a herf class="list-left">
+                  
+                </a>
+                <div class="list-body">
+                  <div class="m-y-sm pull-right">
+                    <a href class="btn btn-xs white">وضعیت درس</a>
+                    
+                  </div>
+                  <div><a href>{{ std_ctrl.view_student_info.status }}</a></div>
+                  <div class="text-sm">
+                    
+                  </div>
+                </div>
+              </li>
+              
+             
+          </ul>
+        </div>
+          
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">بستن</button>
+         <button type="button" class="btn danger p-x-md" data-dismiss="modal">Yes</button> 
+      </div>
+    </div>
+  </div>
+</div> -->
+<!-- / .modal -->
+<!-- .modal edit-->
+<div  id="edit_student_info_modal" role="dialog" class="modal fade animate" data-backdrop="true">
+  <div class="modal-dialog" id="animate">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">ویرایش اطلاعات</h5>
+      </div>
+      <div class="modal-body text-center p-lg">
+        <p>
+          <p>
+        <form name="oadd" method="post" id="edit_student_info_frm">
+          <input type="text" ng-model="std_ctrl.student_info.did" class="form-control" hidden value="{{std_ctrl.student_info.did}}">
+         <div class="box">
+          
+          <ul class="list inset">
+            <li class="list-item">
+                <a herf class="list-left">
+                 
+                </a>
+                <div class="list-body">
+                  <div class="m-y-sm pull-right">
+                    <a href class="btn btn-xs white">نام درس</a>
+                    
+                  </div>
+                  <div class="col-sm-9"><input type="text" ng-model="std_ctrl.student_info.dname" class="form-control" required="" value="{{std_ctrl.student_info.dname}}"> </div>
+                  <div class="text-sm">
+                    
+                  </div>
+                </div>
+              </li>
+              <li class="list-item">
+                <a herf class="list-left">
+                 
+                </a>
+                <div class="list-body">
+                  <div class="m-y-sm pull-right">
+                    <a href class="btn btn-xs white">سال تدریس</a>
+                    
+                  </div>
+                  <div class="col-sm-9"><input type="text" ng-model="std_ctrl.student_info.dyear" class="form-control" required="" value="{{std_ctrl.student_info.dyear}}"> </div>
+                  <div class="text-sm">
+                    
+                  </div>
+                </div>
+              </li>
+              <li class="list-item">
+                <a herf class="list-left">
+                 
+                </a>
+                <div class="list-body">
+                  <div class="m-y-sm pull-right">
+                    <a href class="btn btn-xs white">نوع درس</a>
+                    
+                  </div>
+                  <div class="col-sm-9"><input type="text" ng-model="std_ctrl.student_info.dkynde" class="form-control" required="" value="{{std_ctrl.student_info.dkynde}}"> </div>
+                  <div class="text-sm">
+                    
+                  </div>
+                </div>
+              </li>
+              <li class="list-item">
+                <a herf class="list-left">
+                  
+                </a>
+                <div class="list-body">
+                  <div class="m-y-sm pull-right">
+                    <a href class="btn btn-xs white">وضعیت</a>
+                    
+                  </div>
+                  <div class="col-sm-9"><input type="text" ng-model="std_ctrl.student_info.status" class="form-control" required="" value="{{std_ctrl.student_info.status}}"> </div>
+                  <div class="text-sm">
+                    
+                  </div>
+                </div>
+              </li>
+             
+          </ul>
+        </div>
+        </form>  
+        </p>
+
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn dark-white p-x-md"  data-dismiss="modal">بستن</button>
+        <button type="button" class="btn btn-outline b-info text-info" ng-click="std_ctrl.updars()" >ویرایش</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div>
+</div>
+<!-- / .modal -->
+</div>
+<br>

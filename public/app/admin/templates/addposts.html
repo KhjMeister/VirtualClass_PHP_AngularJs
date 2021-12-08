@@ -1,0 +1,52 @@
+
+<div class="padding">
+
+    <form name="myform" method="post" id="create_student_info_frm" >
+        <div class="box">
+          <div class="box-header">
+            <h2>ایجاد پست جدید</h2>
+          </div>
+        <div style="padding-right: 130px; padding-left: 130px; !important;">
+
+          <div class="box-body">                    
+            <div class="form-group row">
+              <div class="col-sm-9">
+                <input name="title" ng-model="mypost.title" type="text" class="form-control" required="" placeholder="موضوع را اینجا وارد کنید . . .">
+                <span class="myerror" ng-show="myform.title.$touched && myform.title.$invalid" >موضوع نیاز است</span>
+              
+              </div>
+              <label class="col-sm-3 form-control-label">موضوع</label>
+            </div>
+
+          <div class="form-group row">
+              <div class="col-sm-9">
+              	<textarea name="textt" ng-model="mypost.textt" type="text" required="" class="form-control" rows="3" placeholder="متن را اینجا وارد کنید . . ."></textarea>
+                <span class="myerror" ng-show="myform.textt.$touched && myform.textt.$invalid" >متن پست نیاز است</span>
+              
+              </div>
+              <label class="col-sm-3 form-control-label">متن</label>
+            </div>
+
+          
+               
+
+         
+          </div>
+          <br>
+          <div class=" text-right">&nbsp;&nbsp;&nbsp;
+            <button  class="btn btn-fw primary" ng-click="pnl_ctrl.addPosts(mypost)">ثبت</button>
+          </div>
+          <br>
+          </div>
+          <br>
+       
+      </form>
+
+</div>
+<script>
+function myFunction() {
+    var x = document.getElementById("snackbar")
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
+</script>

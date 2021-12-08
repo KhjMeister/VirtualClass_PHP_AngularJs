@@ -1,0 +1,104 @@
+ <div class="box" ng-init="pnl_ctrl.getAllPosts();">
+        <div class="box-body">
+              <table st-table="display_records"  st-safe-src="pnl_ctrl.allPosts" class="table table-striped">
+                  <thead>
+                    <tr >
+                        <th ></th>
+                        <th class="mycenteralign" >موضوع</th>
+                        <th class="mycenteralign" >متن</th>  
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                      <th colspan="5">
+                          <input st-search placeholder="جستجوی پست" class="input-sm form-control" type="search"/>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      <tr  st-select-row="row"  ng-repeat="row in display_records">
+                        <td><img class="img-thumbnail img-responsive" alt="image" src="assets/myimg/comm.png" style="width: 50px; height: 50px;"/></td>
+                        <td>{{row.title}}</td>
+                        <td>{{row.textt}}</td>
+ 
+                        <td><button class="btn btn-outline b-info text-info" data-toggle="modal" data-target="#edit-post" ng-click="pnl_ctrl.showPost(row.poid);">ویرایش</button></td>
+                        <td><button class="btn btn-outline b-danger text-danger" ng-click="pnl_ctrl.delPost(row.poid);pnl_ctrl.getAllPosts();">حذف</button></td>
+
+                      </tr>
+                      </tbody>
+                  <tfoot>
+                      <tr>
+                        <td colspan="5" class="text-center">
+                          <div st-pagination="" st-items-by-page="itemsByPage"></div>
+                        </td>
+                      </tr>
+                  </tfoot>
+              </table>
+                    
+                  </div>
+                </div>
+
+<div id="edit-post" class="modal fade-scale" data-backdrop="true">
+  <div class="modal-dialog ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">
+          <h2>ویرایش پست </h2>
+        </h5>
+      </div>
+      <div class="modal-body text-center p-lg">
+    <div class="box">
+      <div class="box-body">
+
+  
+    <form name="myform" method="post" id="create_student_info_frm" >
+        <div class="box">
+          
+
+
+          <div class="box-body">                    
+            <div class="form-group row">
+              <div class="col-sm-9">
+                <input name="title" ng-model="pnl_ctrl.mypost.title" type="text" class="form-control" required="" value="{{pnl_ctrl.mypost.title}}">
+                <span class="myerror" ng-show="myform.title.$touched && myform.title.$invalid" >موضوع نیاز است</span>
+              
+              </div>
+              <label class="col-sm-3 form-control-label">موضوع</label>
+            </div>
+
+          <div class="form-group row">
+              <div class="col-sm-9">
+                <textarea name="textt" ng-model="pnl_ctrl.mypost.textt" type="text" required="" class="form-control" rows="3" >{{ pnl_ctrl.mypost.textt }}</textarea>
+                <span class="myerror" ng-show="myform.textt.$touched && myform.textt.$invalid" >متن پست نیاز است</span>
+              
+              </div>
+              <label class="col-sm-3 form-control-label">متن</label>
+            </div>
+
+          
+               
+
+         
+          </div>
+          <br>
+          <div class=" text-right pull-left">&nbsp;&nbsp;&nbsp;
+            <button data-dismiss="modal" class="btn btn-fw primary" ng-click="pnl_ctrl.editPosts(pnl_ctrl.mypost);pnl_ctrl.getAllPosts();">ثبت</button>
+          </div>
+          <br>
+         
+          <br>
+       
+      </form>
+
+    </div>
+  </div>
+      
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">بستن</button>
+        
+      </div>
+    </div><!-- /.modal-content -->
+  </div>
+</div>

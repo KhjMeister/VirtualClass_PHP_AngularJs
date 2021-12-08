@@ -1,0 +1,104 @@
+<div class="padding" ng-init="pnl_ctrl.showRepError();">
+<div class="box">
+    <div class="box-header">
+      <h3>ویرایش اطلاعات صفحه ارتباط با ما</h3>
+      
+    </div>
+    <div class="box-body">
+    	<div class="row">
+            <div >
+              <div class="box">
+    <div class="box-header">
+      <h2>گزارش های خرابی</h2>
+      <small></small>
+    </div>
+    <div class="table-responsive">
+      <table  st-table="display_records"  st-safe-src="pnl_ctrl.ras" class="table table-striped">
+        <thead>
+          <tr>
+            <th class="mycenteralign">نام</th>
+            <th class="mycenteralign">ایمیل</th>
+            <th class="mycenteralign">نوع مشکل</th>
+            <th class="mycenteralign">توضیحات کاربر</th>
+            <th class="mycenteralign">تاریخ</th>
+            <th class="mycenteralign"></th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr st-select-row="row"  ng-repeat="row in display_records">
+            <td class="mycenteralign">{{ row.name }}</td>
+            <td class="mycenteralign">{{ row.email }}</td>
+            <td class="mycenteralign">{{ row.kynde }}</td>
+            <td class="mycenteralign">{{ row.qu }}</td>
+            <td class="mycenteralign">{{ row.datee }}</td>
+           <td><button class="btn btn-outline b-danger text-danger" ng-click="pnl_ctrl.delReport(row.rpid);pnl_ctrl.showRepError();">حذف</button></td>
+
+
+          </tr>
+          
+        </tbody>
+        <tfoot>
+              <tr>
+                   <td colspan="5" class="text-center">
+                     <div st-pagination="" st-items-by-page="itemsByPage"></div>
+                  </td>
+              </tr>
+       </tfoot>
+      </table>
+    </div>
+  </div>
+
+            </div>
+          </div>
+    </div>
+
+</div>
+</div>
+<div class="padding" >
+<div class="box">
+    <div class="box-header">
+      <h3>ایجاد سوال و جواب جدید</h3>
+      
+    </div>
+    <div class="box-body">
+    	<form name="oadd" method="post" id="create_student_info_frm" >
+        <div class="box">
+
+          <div class="box-body">                    
+            <div class="form-group row">
+              <div class="col-sm-9">
+                <input name="qu" ng-model="daneshjoo.qu" type="text" class="form-control" required="" placeholder="سوال">
+                <span class="myerror" ng-show="oadd.qu.$touched && oadd.qu.$invalid" > سوال نیاز است</span>
+              
+              </div>
+              <label class="col-sm-3 form-control-label">سوال</label>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-9">
+                <input name="an" ng-model="daneshjoo.an" type="text" class="form-control"  required="" placeholder="جواب">
+                <span class="myerror" ng-show="oadd.an.$touched && oadd.an.$invalid" >جواب نیاز است</span>
+                
+              </div>
+              <label class="col-sm-3 form-control-label">جواب</label>
+            </div>
+           
+
+         <br>
+          <div class=" text-right">&nbsp;&nbsp;&nbsp;
+            <button  class="btn btn-fw primary pull-left" ng-click="pnl_ctrl.addNewqusan(daneshjoo);" >ثبت</button>
+          </div>
+          
+          </div>
+          
+        
+      </form>
+    </div>
+
+
+
+
+
+</div>
+</div>

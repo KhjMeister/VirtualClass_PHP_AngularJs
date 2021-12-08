@@ -1,0 +1,88 @@
+
+<div class="padding" ng-init="ost_ctrl.DaneshjooDetails();">
+
+  <div>
+    <form name="oadd" method="post" id="create_student_info_frm" >
+        <div class="box">
+          <div class="box-header">
+            <h2>اطلاعات دانشجو را وارد کنید</h2>
+          </div>
+
+           <div style="padding-right: 130px; padding-left: 130px; !important;">
+          <div class="box-body">                    
+            <div class="form-group row">
+              <div class="col-sm-9">
+                <input name="sncode" ng-model="daneshjoo.sncode" type="text" class="form-control" required="" placeholder="کد را اینجا وارد کنید...">
+                <span class="myerror" ng-show="oadd.sncode.$touched && oadd.sncode.$invalid" >کد مورد نیاز است</span>
+              
+              </div>
+              <label class="col-sm-3 form-control-label">کد ملی</label>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-9">
+                <input name="sname" ng-model="daneshjoo.sname" type="text" class="form-control"  required="" placeholder="نام را اینجا وارد کنید...">
+                <span class="myerror" ng-show="oadd.sname.$touched && oadd.sname.$invalid" >نام مورد نیاز است</span>
+                
+              </div>
+              <label class="col-sm-3 form-control-label">نام</label>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-9">
+                <input name="sfamily" ng-model="daneshjoo.sfamily" type="text" class="form-control"  required="" placeholder="نام خانوادگی را اینجا وارد کنید...">
+                <span class="myerror" ng-show="oadd.sfamily.$touched && oadd.sfamily.$invalid" >نام خانوادگی مورد نیاز است</span>
+              
+              </div>
+              <label class="col-sm-3 form-control-label">نام خانوادگی</label>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-9">
+                <input name="sfather" ng-model="daneshjoo.sfather" type="text"  class="form-control" required="" placeholder="نام پدر" >
+                <span class="myerror" ng-show="oadd.sfather.$touched && oadd.sfather.$invalid" >نام پدر مورد نیاز است</span>
+              
+              </div>
+              <label class="col-sm-3 form-control-label">نام پدر</label>
+            </div>
+            
+            <div class="form-group row" >
+              <div class="col-sm-9">
+                <input name="sbrdate" dir="rtl" ng-model="daneshjoo.sbrdate" type="date" class=" pull- right form-control"  required="" placeholder="1374/10/4">
+                <span class="myerror" ng-show="oadd.sbrdate.$touched && oadd.sbrdate.$invalid" >تاریخ تولد مورد نیاز است</span>
+                
+            </div>
+              <label class="col-sm-3 form-control-label">تاریخ تولد</label>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-9">
+                <input name="suser" ng-model="daneshjoo.suser" type="text"  minlength="5" class="form-control" required="" placeholder=" نام کاربری باید بیشتر از 5 حرف باشد" >
+                <span class="myerror" ng-show="oadd.suser.$touched && oadd.suser.$invalid" >نام کاربری مورد نیاز است</span>
+                
+              </div>
+              <label class="col-sm-3 form-control-label">نام کاربری</label>
+            </div>  
+
+            <div class="form-group row">
+              <div class="col-sm-9">
+                <input name="spass" ng-model="daneshjoo.spass" type="text" minlength="5" class="form-control" required="" placeholder="پسورد باید بیشتر از 5 حرف باشد" >
+                <span class="myerror" ng-show="oadd.spass.$touched && oadd.spass.$invalid" >پسورد مورد نیاز است</span>
+                
+              </div>
+              <label class="col-sm-3 form-control-label">پسورد</label>
+            </div>     
+
+         </div> 
+         <br>
+          <div class=" text-right">&nbsp;&nbsp;&nbsp;
+            <button  class="btn btn-fw primary" ng-click="ost_ctrl.addDaneshjoo(daneshjoo)">ثبت</button>
+          </div>
+          <br>
+          </div>
+          <br>
+        
+      </form>
+      </div>
+
+</div>

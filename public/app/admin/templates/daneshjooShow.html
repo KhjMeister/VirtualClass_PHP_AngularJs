@@ -1,0 +1,344 @@
+
+<div class="padding" ng-init="ost_ctrl.DaneshjooDetails();">
+<div class="box">
+    <div class="box-header">
+      <h3>نمایش اطلاعات دانشجو</h3>
+      
+    </div>
+   <!--  <div class="box-body">
+      <input type="text" id="search_input" value="1" ng-model="search_input" class="form-control input-sm w-auto inline m-r"/>
+      <a ng-click="ost_ctrl.search_data(search_input)" class="btn btn-outline b-success text-success" type="button">جستجو</a>
+    </div>
+    <div>
+      <table class="table m-b-none" ui-jp="footable" data-filter="#filter" data-page-size="5">
+        <thead>
+          <tr>
+              <th class="mycenteralign" data-toggle="true">
+                  نام
+              </th>
+              <th class="mycenteralign">
+                  نام خانوادگی
+              </th>
+              <th class="mycenteralign" >
+                  شماره ملی
+              </th>
+              <th class="mycenteralign" >
+                  وضعیت
+              </th>
+              <th></th>
+              
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="danesh in ost_ctrl.danesh_list">
+              <td class="mycenteralign">{{ danesh.sname }}</td>
+              <td class="mycenteralign"><a href>{{ danesh.sfamily }}</a></td>
+              <td class="mycenteralign">{{ danesh.sncode }}</td>
+              <td class="mycenteralign" data-value="78025368997">{{ danesh.status }}</td>
+             
+                
+                <td><button type="button"  class="btn btn-outline b-danger text-danger" ng-click="ost_ctrl.delete_student_info(danesh.sid)" >حذف</button>
+                  
+                  
+                <button type="button" data-toggle="modal" data-target="#edit_student_info_modal" class="btn btn-outline b-info text-info" ng-click="ost_ctrl.edit_student_info(danesh.sid)">ویرایش</button>
+
+                <button type="button"  data-toggle="modal"  ui-toggle-class="fade-down" ui-target="#animate" data-target="#view_student_info_modal" class="btn btn-outline b-success text-success" ng-click="ost_ctrl.get_student_info(danesh.sid)">مشاهده</button></td>
+          </tr>
+          
+        </tbody>
+
+
+        <tfoot class="hide-if-no-paging text-center footable-visible">
+          <pagination ng-model="currentPage" total-items="total_row" max-size="maxSize" boundary-links="true">
+        </pagination>
+        
+       
+        </tfoot>
+      </table>
+    </div> -->
+    <div class="box-body">
+    <table  st-table="display_records"  st-safe-src="ost_ctrl.mydaneshjoo" class="table table-striped">
+        <thead>
+          <tr>
+           <th class="mycenteralign" data-toggle="true">
+                  نام
+              </th>
+              <th class="mycenteralign">
+                  نام خانوادگی
+              </th>
+              <th class="mycenteralign" >
+                  شماره ملی
+              </th>
+              
+              <th></th>
+          </tr>
+           <tr>
+                          <th colspan="5">
+                            <input st-search placeholder="جستجوی دانشجویان" class="input-sm form-control" type="search"/>
+                          </th>
+                        </tr>
+        </thead>
+        <tbody>
+          <tr st-select-row="row"  ng-repeat="row in display_records">
+           <td class="mycenteralign">{{ row.sname }}</td>
+              <td class="mycenteralign"><a href>{{ row.sfamily }}</a></td>
+              <td class="mycenteralign">{{ row.sncode }}</td>
+             
+                
+                <td><button type="button"  class="btn btn-outline b-danger text-danger" ng-click="ost_ctrl.delete_student_info(row.sid)" >حذف</button>
+                  
+                  
+                <button type="button" data-toggle="modal" data-target="#edit_student_info_modal" class="btn btn-outline b-info text-info" ng-click="ost_ctrl.edit_student_info(row.sid)">ویرایش</button>
+
+                <button type="button"  data-toggle="modal"  ui-toggle-class="fade-down" ui-target="#animate" data-target="#view_student_info_modal" class="btn btn-outline b-success text-success" ng-click="ost_ctrl.get_student_info(row.sid)">مشاهده</button></td>
+
+
+          </tr>
+          
+        </tbody>
+        <tfoot>
+              <tr>
+                   <td colspan="5" class="text-center">
+                     <div st-pagination="" st-items-by-page="itemsByPage"></div>
+                  </td>
+              </tr>
+       </tfoot>
+      </table>
+      
+    </div>
+  </div>
+
+          
+<!-- .modal show-->
+<div  id="view_student_info_modal" role="dialog" class="modal fade animate" data-backdrop="true">
+  <div class="modal-dialog" id="animate">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">مشاهده اطلاعات دانشجو {{ ost_ctrl.view_student_info.sname }}&nbsp;{{ ost_ctrl.view_student_info.sfamily }}</h5>
+      </div>
+      <div class="modal-body text-center p-lg">
+        <p>
+         <div class="box">
+          
+          <ul class="list inset">
+              <li class="list-item">
+                <a herf class="list-left">
+                 
+                </a>
+                <div class="list-body">
+                  <div class="m-y-sm pull-right">
+                    <a href class="btn btn-xs white">شماره ملی</a>
+                    
+                  </div>
+                  <div><a href>{{ ost_ctrl.view_student_info.sncode }}</a></div>
+                  <div class="text-sm">
+                    
+                  </div>
+                </div>
+              </li>
+              <li class="list-item">
+                <a herf class="list-left">
+                  
+                </a>
+                <div class="list-body">
+                  <div class="m-y-sm pull-right">
+                    <a href class="btn btn-xs white">نام پدر</a>
+                    
+                  </div>
+                  <div><a href>{{ ost_ctrl.view_student_info.sfather }}</a></div>
+                  <div class="text-sm">
+                    
+                  </div>
+                </div>
+              </li>
+              <li class="list-item">
+                <a herf class="list-left">
+                  
+                </a>
+                <div class="list-body">
+                  <div class="m-y-sm pull-right">
+                    <a href class="btn btn-xs white">تاریخ تولد</a>
+                    
+                  </div>
+                  <div><a href>{{ ost_ctrl.view_student_info.sbrdate }}</a></div>
+                  <div class="text-sm">
+                    
+                  </div>
+                </div>
+              </li>
+              <li class="list-item">
+                <a herf class="list-left">
+                  
+                <div class="list-body">
+                  <div class="m-y-sm pull-right">
+                    <a href class="btn btn-xs white">نام کاربری</a>
+                    
+                  </div>
+                  <div><a href>{{ ost_ctrl.view_student_info.suser }}</a></div>
+                  <div class="text-sm">
+                    
+                  </div>
+                </div>
+              </li>
+              <li class="list-item">
+                <a herf class="list-left">
+                                  </a>
+                <div class="list-body">
+                  <div class="m-y-sm pull-right">
+                    <a href class="btn btn-xs white">پسورد</a>
+                    
+                  </div>
+                  <div><a href>{{ ost_ctrl.view_student_info.spass }}</a></div>
+                  <div class="text-sm">
+                    
+                  </div>
+                </div>
+              </li>
+          </ul>
+        </div>
+          
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">بستن</button>
+        <!-- <button type="button" class="btn danger p-x-md" data-dismiss="modal">Yes</button> -->
+      </div>
+    </div><!-- /.modal-content -->
+  </div>
+</div>
+<!-- / .modal -->
+<!-- .modal edit-->
+<div  id="edit_student_info_modal" role="dialog" class="modal fade animate" data-backdrop="true">
+  <div class="modal-dialog" id="animate">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">ویرایش اطلاعات</h5>
+      </div>
+      <div class="modal-body text-center p-lg">
+        <p>
+          <p>
+        <form name="oadd" method="post" id="edit_student_info_frm">
+          <input type="text" ng-model="ost_ctrl.student_info.sid" class="form-control" hidden value="{{ost_ctrl.student_info.sid}}">
+         <div class="box">
+          
+          <ul class="list inset">
+            <li class="list-item">
+                <a herf class="list-left">
+                 
+                </a>
+                <div class="list-body">
+                  <div class="m-y-sm pull-right">
+                    <a href class="btn btn-xs white">نام</a>
+                    
+                  </div>
+                  <div class="col-sm-9"><input type="text" ng-model="ost_ctrl.student_info.sname" class="form-control" required="" value="{{ost_ctrl.student_info.sname}}"> </div>
+                  <div class="text-sm">
+                    
+                  </div>
+                </div>
+              </li>
+              <li class="list-item">
+                <a herf class="list-left">
+                 
+                </a>
+                <div class="list-body">
+                  <div class="m-y-sm pull-right">
+                    <a href class="btn btn-xs white">نام خانوادگی</a>
+                    
+                  </div>
+                  <div class="col-sm-9"><input type="text" ng-model="ost_ctrl.student_info.sfamily" class="form-control" required="" value="{{ost_ctrl.student_info.sfamily}}"> </div>
+                  <div class="text-sm">
+                    
+                  </div>
+                </div>
+              </li>
+              <li class="list-item">
+                <a herf class="list-left">
+                 
+                </a>
+                <div class="list-body">
+                  <div class="m-y-sm pull-right">
+                    <a href class="btn btn-xs white">شماره ملی</a>
+                    
+                  </div>
+                  <div class="col-sm-9"><input type="text" ng-model="ost_ctrl.student_info.sncode" class="form-control" required="" value="{{ost_ctrl.student_info.sncode}}"> </div>
+                  <div class="text-sm">
+                    
+                  </div>
+                </div>
+              </li>
+              <li class="list-item">
+                <a herf class="list-left">
+                  
+                </a>
+                <div class="list-body">
+                  <div class="m-y-sm pull-right">
+                    <a href class="btn btn-xs white">نام پدر</a>
+                    
+                  </div>
+                  <div class="col-sm-9"><input type="text" ng-model="ost_ctrl.student_info.sfather" class="form-control" required="" value="{{ost_ctrl.student_info.sfather}}"> </div>
+                  <div class="text-sm">
+                    
+                  </div>
+                </div>
+              </li>
+              <li class="list-item">
+                <a herf class="list-left">
+                  
+                </a>
+                <div class="list-body">
+                  <div class="m-y-sm pull-right">
+                    <a href class="btn btn-xs white">تاریخ تولد</a>
+                    
+                  </div>
+                  <div class="col-sm-9"><input type="text" ng-model="ost_ctrl.student_info.sbrdate" class="form-control" required="" value="{{ost_ctrl.student_info.sbrdate}}"> </div>
+                  <div class="text-sm">
+                    
+                  </div>
+                </div>
+              </li>
+              <li class="list-item">
+                <a herf class="list-left">
+                  
+                <div class="list-body">
+                  <div class="m-y-sm pull-right">
+                    <a href class="btn btn-xs white">نام کاربری</a>
+                    
+                  </div>
+                  <div class="col-sm-9"><input ng-model="ost_ctrl.student_info.suser" type="text" class="form-control" required="" value="{{ost_ctrl.student_info.suser}}"> </div>
+                  <div class="text-sm">
+                    
+                  </div>
+                </div>
+              </li>
+              <li class="list-item">
+                <a herf class="list-left">
+                                  </a>
+                <div class="list-body">
+                  <div class="m-y-sm pull-right">
+                    <a href class="btn btn-xs white">پسورد</a>
+                    
+                  </div>
+                  <div class="col-sm-9"><input ng-model="ost_ctrl.student_info.spass" type="text" class="form-control" required="" value="{{ost_ctrl.student_info.spass}}"> </div>
+                  <div class="text-sm">
+                    
+                  </div>
+                </div>
+              </li>
+          </ul>
+        </div>
+        </form>  
+        </p>
+
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn dark-white p-x-md"  data-dismiss="modal">بستن</button>
+        <button type="button" class="btn btn-outline b-info text-info" ng-click="ost_ctrl.upOstad()" >ویرایش</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div>
+</div>
+<!-- / .modal -->
+</div>
+<br>

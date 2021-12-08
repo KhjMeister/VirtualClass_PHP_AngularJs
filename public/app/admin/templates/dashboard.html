@@ -1,0 +1,220 @@
+
+<div class="row-col b-b" ng-init="std_ctrl.getCountStu();std_ctrl.getCountOst();">
+    <div class="col-md">
+        <div class="padding">
+            <div class="margin">
+                <h5 class="m-b-0 _300">
+                  
+                </h5>
+                  
+                  
+            </div>
+            
+            <div class="row-col box">
+              <div class="col-sm-6 grey lt">
+                <div class="box-header">
+                        <h3>تنظیمات</h3>
+                    </div>
+                    <div class="box-body">
+
+                      <div class="list box">
+                        <div class="list-item">
+                          <div class="list-body">
+                            <a href="./admin/profile" class="_500">پروفایل</a>
+                          </div>
+                        </div>
+
+                        <div class="list-item">
+                          <div class="list-body">
+                            <a href="./admin/setting" class="_500">تنظیمات سایت</a>
+                          </div>
+                        </div>
+
+                         <div class="list-item">
+                          <div class="list-body">
+                            <a href="./admin/indexSetting" class="_500">تنظیمات خانه</a>
+                          </div>
+                        </div>
+
+                         <div class="list-item">
+                          <div class="list-body">
+                            <a href="./admin/conUsSetting" class="_500">صفحه ارتباط با ما</a>
+                          </div>
+                        </div>
+
+                      </div>
+                        
+                    </div>
+                   
+                </div>
+                <div class="col-sm-6 grey lt">
+                     <div class="box-header">
+                      <h3>پست ها</h3>
+                    </div>
+                    <div class="box-body">
+                          <div class="list box">
+                        <div class="list-item">
+                          <div class="list-body">
+                            <a href="./admin/addposts" class="_500">ایجاد پست جدید</a>
+                          </div>
+                        </div>
+
+                        <div class="list-item">
+                          <div class="list-body">
+                            <a href="./admin/editposts" class="_500">نمایش پست ها</a>
+                          </div>
+                        </div>
+
+                      
+
+                      </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+
+  
+<div class="col-xs-6 col-sm-12 col-md-6">
+          <div class="box">
+              <div class="item">
+                <div class="item-bg">
+                  <img src="assets/myimg/ostad.png" class="blur">
+                </div>
+                <div class="p-a-lg pos-rlt text-center">
+                  <img src="assets/myimg/ostad.png" class="img-circle w-56" style="margin-bottom: -7rem">
+                </div>
+            </div>
+              <div class="p-a text-center">
+                <a href="./admin/ostadShow" class="text-md m-t block">اساتید</a>
+                
+                <p><a href="./admin/ostadAdd" class="btn btn-sm primary">اضافه کردن</a></p>
+                <div class="text-xs">
+                  <em>تعداد: <strong>{{ std_ctrl.Ost_c_details.dd}}</strong></em>
+                </div>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-12 col-md-6">
+          <div class="box">
+              <div class="item">
+                <div class="item-bg">
+                  <img src="assets/myimg/user.png" class="blur">
+                </div>
+                <div class="p-a-lg pos-rlt text-center">
+                  <img src="assets/myimg/user.png" class="img-circle w-56" style="margin-bottom: -7rem">
+                </div>
+            </div>
+              <div class="p-a text-center">
+                <a href="./admin/daneshjooShow" class="text-md m-t block">دانشجویان</a>
+                
+                <p><a href="./admin/daneshjooAdd" class="btn btn-sm primary">اضافه کردن</a></p>
+                <div class="text-xs">
+                  <em>تعداد: <strong>{{ std_ctrl.Stu_c_details.dd}}</strong></em>
+                </div>
+              </div>
+          </div>
+        </div>
+
+
+
+
+
+
+        </div>
+    </div>
+    <!-- <div class="col-md w-lg w-auto-sm light lt b-l"  data-ng-init="std_ctrl.loadAdminProfile()">
+         <div class="p-a b-b">
+            <a href class="clear">
+                <span class="pull-left">
+                  <img src="assets/images/a1.jpg" alt="..." class="w-40 r">
+                </span>
+                <span class="clear hidden-folded p-x">
+                  <span class="block _500">{{std_ctrl.admin_prof.name}} {{std_ctrl.admin_prof.family}}</span>
+                  <small class="block text-muted"><i class="fa fa-circle text-success m-r-sm"></i>online</small>
+                </span>
+            </a>
+        </div>
+        <div class="list-group no-radius no-borders light lt"  ng-repeat="ostadak in std_ctrl.ostads_details">
+            
+                      
+            <a data-toggle="modal" data-target="#chat" data-dismiss="modal" ng-click="std_ctrl.loadMsg(ostadak.oid)" class="list-group-item p-x-md text-ellipsis">
+                <i class="fa fa-circle text-success text-xs m-r-xs"></i>
+                <span>{{ ostadak.oname }}</span>
+            </a>
+            
+        </div> 
+    </div> -->
+</div>
+
+<!--  <div class="modal fade inactive" id="chat" data-backdrop="false">
+  <div class="right w-xxl grey lt b-l">
+      <div class="row-col">
+    <a data-dismiss="modal" class="pull-right text-muted text-lg p-a-sm m-r-sm">&times;</a>
+    <div class="p-a b-b">
+      <span class="h5">چت</span>
+    </div>
+    <div class="row-row dker">
+      <div class="row-body scrollable hover">
+        <div class="row-inner">
+          <div class="p-a-md">
+            <div class="m-b">
+              <a href class="pull-left w-40 m-r-sm"><img src="assets/images/a2.jpg" alt="..." class="w-full img-circle"></a>
+              <div class="clear">
+                <div class="p-a p-y-sm white inline r">
+                  Hi John, What's up...
+                </div>
+                <div class="text-muted text-xs m-t-xs"><i class="fa fa-ok text-success"></i> 2 minutes ago</div>
+              </div>
+            </div>
+            <div class="m-b">
+              <a href class="pull-right w-40 m-l-sm"><img src="assets/images/a3.jpg" class="w-full img-circle" alt="..."></a>
+              <div class="clear text-right">
+                <div class="p-a p-y-sm success inline text-left r">
+                  Lorem ipsum dolor soe rooke..
+                </div>
+                <div class="text-muted text-xs m-t-xs">1 minutes ago</div>
+              </div>
+            </div>
+            <div class="m-b">
+              <a href class="pull-left w-40 m-r-sm"><img src="assets/images/a2.jpg" alt="..." class="w-full img-circle"></a>
+              <div class="clear">
+                <div class="p-a p-y-sm white inline r">
+                  Good!
+                </div>
+                <div class="text-muted text-xs m-t-xs"><i class="fa fa-ok text-success"></i> 5 seconds ago</div>
+              </div>
+            </div>
+            <div class="m-b">
+              <a href class="pull-right w-40 m-l-sm"><img src="assets/images/a3.jpg" class="w-full img-circle" alt="..."></a>
+              <div class="clear text-right">
+                <div class="p-a p-y-sm success inline text-left r">
+                  Dlor soe isep..
+                </div>
+                <div class="text-muted text-xs m-t-xs">Just now</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="p-a b-t">
+      <a class="pull-left w-32 m-r"><img src="assets/images/a3.jpg" class="w-full img-circle" alt="..."></a>
+      <form>
+        <div class="input-group input-group-sm">
+          <input type="text" class="form-control" placeholder="Say something">
+          <span class="input-group-btn">
+            <button class="btn white b-a no-shadow" type="button">ارسال</button>
+          </span>
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>
+</div> --> 
+
+
+
+    </div>
+  </div>

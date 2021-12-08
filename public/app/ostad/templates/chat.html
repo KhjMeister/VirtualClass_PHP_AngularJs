@@ -1,0 +1,64 @@
+
+
+
+ <div class=" padding">
+    <div class="box">
+        <div class="box-header">
+             <div class="btn-group dropdown " ng-init="p_ctrl.setdarsID();p_ctrl.showDars();p_ctrl.showDarss();">
+                
+                <button ng-click="p_ctrl.resetmessages();" type="button" style="margin-right: 3px;" class="btn btn-outline b-danger text-danger" >
+                     حذف پیام ها 
+                </button>
+               
+                <button ng-click="p_ctrl.showDarss();" type="button" class="btn white" data-toggle="dropdown" aria-expanded="false">
+                    {{ p_ctrl.Darss.dname }} <span class="caret"></span>
+                </button>
+               
+                <ul class="dropdown-menu animated fadeIn pull-right">
+                    <li ng-repeat="darssq in p_ctrl.Darsssq" class="dropdown-item"><a href="./ostad/chats" ng-click="p_ctrl.darsID(darssq.did);p_ctrl.showDars(); " >{{ darssq.dname }}</a></li>
+                      
+                </ul>
+                
+            </div>
+        </div>
+    <div class="box-body">
+      <div class="container">
+        
+        <div class="box box-warning direct-chat direct-chat-warning">
+            <div class="box-body">
+                <div class="direct-chat-messages">
+                    <div class="direct-chat-msg" ng-repeat="message in p_ctrl.messages"  ng-class="{'right':!message.me}">
+                       
+
+                        <div class="direct-chat-info clearfix">
+                            <span class="direct-chat-name " ng-class="{'myleft':message.me, 'pull-left':message.me, 'pull-right':!message.me}">{{ message.username }}</span>
+                            <span class="direct-chat-timestamp " ng-class="{'pull-left':!message.me, 'pull-right':message.me}">{{ message.date }}</span>
+                        </div>
+                        <img class="direct-chat-img" style="" src="assets/myimg/user.png" alt="">
+                        <div class="direct-chat-text ">
+                            <span>{{ message.message }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <form ng-submit="p_ctrl.saveMessage(p_ctrl.info)">
+                        <div class="input-group">
+                            <input type="text" placeholder="پیامتان را اینجا وارد کنید ..." autofocus="autofocus" class="form-control" ng-model="p_ctrl.info.message" ng-enter="saveMessage(p_ctrl.info)">
+                            <span class="input-group-btn">
+                            <button type="submit"  class="btn btn-outline b-success text-success" >ارسال</button>
+
+                            </span>
+                        </div>
+                    </form>
+                    <div class="clearfix">
+                        <!-- <span class="badge pull-left">کاربران  : {{ users.total || '1' }}</span> -->
+                        <!-- <a href="javascript:void(0)" class="my_sid w3-bar-item w3-button w3-dark-grey w3-button w3-hover-black w3-left-align" onclick="document.getElementById('clear-history').style.display='block'">Change nikname</a> -->
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+</div>

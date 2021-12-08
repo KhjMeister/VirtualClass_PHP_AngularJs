@@ -1,0 +1,411 @@
+
+
+
+
+  <div class="item" data-ng-init="std_ctrl.loadAdminProfile()">
+    <div class="item-bg">
+      <img src="assets/myimg/{{ std_ctrl.admin_prof.pic }}" class="blur opacity-3">
+    </div>
+    <div class="p-a-md">
+      <div class="row m-t">
+        <div class="col-sm-7">
+          <a href class="pull-left m-r-md">
+            <span class="avatar w-96">
+              <img src="assets/myimg/{{ std_ctrl.admin_prof.pic }}">
+              <i class="on b-white"></i>
+            </span>
+          </a>
+          <div class="clear m-b">
+            <h3 class="m-a-0 m-b-xs">{{ std_ctrl.admin_prof.name }} {{ std_ctrl.admin_prof.family }}</h3>
+            <p class="text-muted"><span class="m-r">{{ std_ctrl.admin_prof.email }}</span> <small><i class="fa fa-map-marker m-r-xs"></i></small></p>
+            <div class="block clearfix m-b">
+              <a href="" class="btn btn-icon btn-social rounded white btn-sm">
+                <i class="fa fa-facebook"></i>
+                <i class="fa fa-facebook indigo"></i>
+              </a>
+              <a href="" class="btn btn-icon btn-social rounded white btn-sm">
+                <i class="fa fa-twitter"></i>
+                <i class="fa fa-twitter light-blue"></i>
+              </a>
+              <a href="" class="btn btn-icon btn-social rounded white btn-sm">
+                <i class="fa fa-google-plus"></i>
+                <i class="fa fa-google-plus red"></i>
+              </a>
+              <a href="" class="btn btn-icon btn-social rounded white btn-sm">
+                <i class="fa fa-linkedin"></i>
+                <i class="fa fa-linkedin cyan-600"></i>
+              </a>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-sm-5">
+          <p class="text-md profile-status">من آنلاینم</p>
+          <button class="btn btn-sm white" data-toggle="modal"  data-target="#edit_prof_modal">تغییر</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+<div  id="edit_prof_modal" role="dialog" class="modal fade animate" data-backdrop="true">
+  <div class="modal-dialog" id="animate">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">ویرایش اطلاعات</h5>
+      </div>
+      <div class="modal-body text-center p-lg">
+        <p>
+          <p>
+        <form name="oadd" method="post" id="edit_admin_info_frm">
+          <input type="text" ng-model="std_ctrl.admin_prof.sid" class="form-control" hidden value="{{std_ctrl.admin_prof.sid}}">
+         <div class="box">
+          
+          <ul class="list inset">
+            <li class="list-item">
+                <a herf class="list-left">
+                 
+                </a>
+                <div class="list-body">
+                  <div class="m-y-sm pull-right">
+                    <a href class="btn btn-xs white">نام</a>
+                    
+                  </div>
+                  <div class="col-sm-9"><input type="text"  ng-model="std_ctrl.admin_prof.name" class="form-control" required="" value="{{std_ctrl.admin_prof.name}}"> </div>
+                  <div class="text-sm">
+                    
+                  </div>
+                </div>
+              </li>
+              <li class="list-item">
+                <a herf class="list-left">
+                 
+                </a>
+                <div class="list-body">
+                  <div class="m-y-sm pull-right">
+                    <a href class="btn btn-xs white">نام خانوادگی</a>
+                    
+                  </div>
+                  <div class="col-sm-9"><input type="text" ng-model="std_ctrl.admin_prof.family" class="form-control" required="" value="{{std_ctrl.admin_prof.family}}"> </div>
+                  <div class="text-sm">
+                    
+                  </div>
+                </div>
+              </li>
+              <li class="list-item">
+                <a herf class="list-left">
+                 
+                </a>
+                <div class="list-body">
+                  <div class="m-y-sm pull-right">
+                    <a href class="btn btn-xs white">شماره تلفن</a>
+                    
+                  </div>
+                  <div class="col-sm-9"><input type="text" ng-model="std_ctrl.admin_prof.phone" class="form-control" required="" value="{{std_ctrl.admin_prof.phone}}"> </div>
+                  <div class="text-sm">
+                    
+                  </div>
+                </div>
+              </li>
+              <li class="list-item">
+                <a herf class="list-left">
+                 
+                </a>
+                <div class="list-body">
+                  <div class="m-y-sm pull-right">
+                    <a href class="btn btn-xs white">شماره ثابت</a>
+                    
+                  </div>
+                  <div class="col-sm-9"><input type="text" ng-model="std_ctrl.admin_prof.s_phone" class="form-control" required="" value="{{std_ctrl.admin_prof.s_phone}}"> </div>
+                  <div class="text-sm">
+                    
+                  </div>
+                </div>
+              </li>
+              <li class="list-item">
+                <a herf class="list-left">
+                  
+                </a>
+                <div class="list-body">
+                  <div class="m-y-sm pull-right">
+                    <a href class="btn btn-xs white">ایمیل</a>
+                    
+                  </div>
+                  <div class="col-sm-9"><input type="email" ng-model="std_ctrl.admin_prof.email" class="form-control" required="" value="{{std_ctrl.admin_prof.email}}"> </div>
+                  <div class="text-sm">
+                    
+                  </div>
+                </div>
+              </li>
+              <li class="list-item">
+                <a herf class="list-left">
+                  
+                </a>
+                <div class="list-body">
+                  <div class="m-y-sm pull-right">
+                    <a href class="btn btn-xs white">بیوگرافی</a>
+                    
+                  </div>
+                  <div class="col-sm-9"><input type="text" ng-model="std_ctrl.admin_prof.bio" class="form-control" required="" value="{{std_ctrl.admin_prof.bio}}"> </div>
+                  <div class="text-sm">
+                    
+                  </div>
+                </div>
+              </li>
+              <li class="list-item">
+                <a herf class="list-left">
+                  
+                <div class="list-body">
+                  <div class="m-y-sm pull-right">
+                    <a href class="btn btn-xs white">نام کاربری</a>
+                    
+                  </div>
+                  <div class="col-sm-9"><input ng-model="std_ctrl.admin_prof.username" type="text" class="form-control" required="" value="{{std_ctrl.admin_prof.username}}"> </div>
+                  <div class="text-sm">
+                    
+                  </div>
+                </div>
+              </li>
+              <li class="list-item">
+                <a herf class="list-left">
+                                  </a>
+                <div class="list-body">
+                  <div class="m-y-sm pull-right">
+                    <a href class="btn btn-xs white">پسورد</a>
+                    
+                  </div>
+                  <div class="col-sm-9"><input ng-model="std_ctrl.admin_prof.password" type="text" class="form-control" required="" value="{{std_ctrl.admin_prof.password}}"> </div>
+                  <div class="text-sm">
+                    
+                  </div>
+                </div>
+              </li>
+          </ul>
+        </div>
+        </form>  
+        </p>
+
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn dark-white p-x-md"  data-dismiss="modal">بستن</button>
+        <button type="button" class="btn btn-outline b-info text-info" data-toggle=snackbar data-content="Hey! Im a snackbar" data-timeout=3000 ng-click="std_ctrl.up_ad_prof();" data-dismiss="modal">ویرایش</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div>
+</div>
+
+  <div class="dker p-x">
+    <div class="row">
+      <div class="col-sm-6 push-sm-6">
+        <div class="p-y text-center text-sm-right">
+          <a href class="inline p-x text-center">
+            <span class="h4 block m-a-0">6</span>
+            <small class="text-xs text-muted">کاربران</small>
+          </a>
+          
+          <a href class="inline p-x text-center">
+            <span class="h4 block m-a-0">0</span>
+            <small class="text-xs text-muted">فعالیت ها</small>
+          </a>
+        </div>
+      </div>
+      <div class="col-sm-6 pull-sm-6">
+        <div class="p-y-md clearfix nav-active-primary">
+          <ul class="nav nav-pills nav-sm">
+            <li class="nav-item ">
+              <a class="nav-link" href data-toggle="tab" data-target="#tab_1">فعالیت ها</a>
+            </li>
+            
+            
+            <li class="nav-item active" >
+              <a class="nav-link" href data-toggle="tab" data-target="#tab_4">پروفایل</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="padding">
+    <div class="row">
+      <div class="col-sm-12 col-lg-12">
+        <div class="tab-content">      
+          <!-- <div class="tab-pane p-v-sm " id="tab_1">
+            <div class="streamline b-l m-b m-l">
+              <div class="sl-item">
+                <div class="sl-left">
+                  <img src="assets/images/a0.jpg" class="img-circle">
+                </div>
+                <div class="sl-content">
+                  <div class="sl-date text-muted">2 minutes ago</div>
+                  <div class="sl-author">
+                    <a href>Peter Joo</a>
+                  </div>
+                  <div>
+                    <p>Check your Internet connection</p>
+                  </div>
+                  <div class="sl-footer">
+                    <a href ui-toggle-class class="btn white btn-xs">
+                      <i class="fa fa-fw fa-star-o text-muted inline"></i>
+                      <i class="fa fa-fw fa-star text-danger none"></i>
+                    </a>
+                    <a href class="btn white btn-xs" data-toggle="collapse" data-target="#reply-1">
+                      <i class="fa fa-fw fa-mail-reply text-muted"></i>
+                    </a>
+                  </div>
+                  <div class="box collapse m-a-0" id="reply-1">
+                    <form>
+                      <textarea class="form-control no-border" rows="3" placeholder="Type something..."></textarea>
+                    </form>
+                    <div class="box-footer clearfix">
+                      <button class="btn btn-info pull-right btn-sm">Post</button>
+                      <ul class="nav nav-pills nav-sm">
+                        <li class="nav-item"><a class="nav-link" href><i class="fa fa-camera text-muted"></i></a></li>
+                        <li class="nav-item"><a class="nav-link" href><i class="fa fa-video-camera text-muted"></i></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="sl-item">
+                <div class="sl-left">
+                  <img src="assets/images/a1.jpg" class="img-circle">
+                </div>
+                <div class="sl-content">
+                  <div class="sl-date text-muted">9:30</div>
+                  <div class="sl-author">
+                    <a href>Mike</a>
+                  </div>
+                  <div>
+                    <p>Meeting with tech leader</p>
+                  </div>
+                  <div class="sl-footer">
+                    <a href ui-toggle-class class="btn white btn-xs">
+                      <i class="fa fa-fw fa-star-o text-muted inline"></i>
+                      <i class="fa fa-fw fa-star text-danger none"></i>
+                    </a>
+                    <a href class="btn white btn-xs" data-toggle="collapse" data-target="#reply-2">
+                      <i class="fa fa-fw fa-mail-reply text-muted"></i>
+                    </a>
+                  </div>
+                  <div class="box collapse in m-a-0" id="reply-2">
+                    <form>
+                      <textarea class="form-control no-border" rows="3" placeholder="Type something..."></textarea>
+                    </form>
+                    <div class="box-footer clearfix">
+                      <button class="btn btn-info pull-right btn-sm">Post</button>
+                      <ul class="nav nav-pills nav-sm">
+                        <li class="nav-item"><a class="nav-link" href><i class="fa fa-camera text-muted"></i></a></li>
+                        <li class="nav-item"><a class="nav-link" href><i class="fa fa-video-camera text-muted"></i></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="sl-item">
+                <div class="sl-left">
+                  <img src="assets/images/a2.jpg" class="img-circle">
+                </div>
+                <div class="sl-content">
+                  <div class="sl-date text-muted">8:30</div>
+                  <div class="sl-author">
+                    <a href>Moke</a>
+                  </div>
+                  <div>
+                    <p>Call to customer <a href class="text-info">Jacob</a> and discuss the detail.</p>
+                    <p>
+                      <span class="inline w-lg w-auto-xs p-a-xs b dark-white">
+                        <img src="assets/images/c0.jpg" class="w-full">
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="sl-item">
+                <div class="sl-left">
+                  <img src="assets/images/a3.jpg" class="img-circle">
+                </div>
+                <div class="sl-content">
+                  <div class="sl-date text-muted">Wed, 25 Mar</div>
+                  <p>Finished task <a href class="text-info">Testing</a>.</p>
+                </div>
+              </div>
+              <div class="sl-item">
+                <div class="sl-left">
+                  <img src="assets/images/a4.jpg" class="img-circle">
+                </div>
+                <div class="sl-content">
+                  <div class="sl-date text-muted">Thu, 10 Mar</div>
+                  <p>Trip to the moon</p>
+                </div>
+              </div>
+              <div class="sl-item">
+                <div class="sl-left">
+                  <img src="assets/images/a3.jpg" class="img-circle">
+                </div>
+                <div class="sl-content">
+                  <div class="sl-date text-muted">Sat, 5 Mar</div>
+                  <p>Prepare for presentation</p>
+                  <blockquote>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante soe aiea ose dos soois.</p>
+                    <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                  </blockquote>
+                </div>
+              </div>
+              <div class="sl-item">
+                <div class="sl-left">
+                  <img src="assets/images/a2.jpg" class="img-circle">
+                </div>
+                <div class="sl-content">
+                  <div class="sl-date text-muted">Sun, 11 Feb</div>
+                  <p><a href class="text-info">Jessi</a> assign you a task <a href class="text-info">Mockup Design</a>.</p>
+                </div>
+              </div>
+              <div class="sl-item">
+                <div class="sl-left">
+                  <img src="assets/images/a5.jpg" class="img-circle">
+                </div>
+                <div class="sl-content">
+                  <div class="sl-date text-muted">Thu, 17 Jan</div>
+                  <p>Follow up to close deal</p>
+                </div>
+              </div>
+            </div>
+          </div> -->
+         
+          
+          <div class="tab-pane p-v-sm active" id="tab_4">
+            <div class="row m-b">
+              <div class="col-xs-6">
+                <small class="text-muted">شماره تلفن</small>
+                <div class="_500">{{ std_ctrl.admin_prof.phone }}</div>
+              </div>
+              <div class="col-xs-6">
+                <small class="text-muted">شماره ثابت</small>
+                <div class="_500">{{ std_ctrl.admin_prof.s_phone }}</div>
+              </div>
+            </div>
+            <div class="row m-b">
+              <div class="col-xs-6">
+                <small class="text-muted"></small>
+                <div class="_500"></div>
+              </div>
+              <div class="col-xs-6">
+                <small class="text-muted">مدیریت</small>
+                <div class="_500">{{ std_ctrl.admin_prof.name }} {{ std_ctrl.admin_prof.family }}</div>
+              </div>
+            </div>
+            <div>
+              <small class="text-muted">بیوگرافی</small>
+              <div>{{ std_ctrl.admin_prof.bio }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+
+    </div>
+  </div>
